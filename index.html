@@ -3,291 +3,396 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Portafolio Programación II | Magdalena González</title>
-
+  <title>MG.PORTFOLIO — Programación II</title>
+  <meta name="description" content="Portafolio académico digital de Magdalena González — Programación II, UTP Panamá, Ciberseguridad 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" 
-    rel="stylesheet"
-  >
 </head>
-
 <body>
 
-  <div class="cursor-glow"></div>
+  <!-- ─── Custom cursor ─────────────────────────────────── -->
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <header class="header">
-    <nav class="navbar">
-      <a href="#inicio" class="logo">MG<span>.</span>DEV</a>
+  <!-- ─── HEADER ────────────────────────────────────────── -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#inicio" class="logo">MG<span class="logo-sep">.</span>PORTFOLIO</a>
 
-      <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#actividades">Actividades</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#evidencias">Evidencias</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#inicio"      class="nav-link">Inicio</a>
+        <a href="#sobre-mi"   class="nav-link">Sobre mí</a>
+        <a href="#actividades" class="nav-link">Actividades</a>
+        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#evidencias"  class="nav-link">Evidencias</a>
+        <a href="#contacto"    class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="#actividades" class="btn-header">Ver portafolio <span aria-hidden="true">→</span></a>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <main>
+  <!-- ─── MOBILE NAV ────────────────────────────────────── -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="#inicio"      class="mobile-nav-link">Inicio</a>
+    <a href="#sobre-mi"   class="mobile-nav-link">Sobre mí</a>
+    <a href="#actividades" class="mobile-nav-link">Actividades</a>
+    <a href="#habilidades" class="mobile-nav-link">Habilidades</a>
+    <a href="#evidencias"  class="mobile-nav-link">Evidencias</a>
+    <a href="#contacto"    class="mobile-nav-link">Contacto</a>
+  </div>
 
-    <section id="inicio" class="hero section">
-      <div class="hero-bg-text">PROGRAMACIÓN II</div>
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════ -->
+  <section class="hero" id="inicio" aria-label="Introducción">
+    <div class="hero-grid-bg"    aria-hidden="true"></div>
+    <div class="hero-slash-bg"   aria-hidden="true"></div>
+    <div class="hero-slash-bg2"  aria-hidden="true"></div>
 
-      <div class="hero-content reveal">
-        <p class="tag">Universidad Tecnológica de Panamá</p>
+    <div class="hero-inner">
 
-        <h1>
-          Portafolio de<br>
-          <span>Programación II</span>
+      <!-- Tags -->
+      <div class="hero-tags">
+        <span class="hero-tag">UTP</span>
+        <span class="hero-tag">Programación II</span>
+        <span class="hero-tag">2026</span>
+        <span class="hero-tag">Ciberseguridad</span>
+      </div>
+
+      <!-- Giant title -->
+      <div class="hero-title-wrap">
+        <h1 class="hero-title">
+          <span class="hero-title-line ht1">PORTA</span>
+          <span class="hero-title-line ht2">FOLIO</span>
         </h1>
+        <div class="hero-roman" aria-hidden="true">II</div>
+      </div>
 
-        <p class="hero-description">
-          Recopilación digital de actividades, talleres, investigaciones y proyectos
-          desarrollados durante el curso, presentada como evidencia del aprendizaje
-          y la evolución técnica alcanzada durante el semestre.
+      <!-- Description block -->
+      <div class="hero-desc-block">
+        <p class="hero-program-label">PROGRAMACIÓN II — UTP PANAMÁ</p>
+        <p class="hero-desc">
+          Evidencias académicas, proyectos y actividades<br class="br-desktop" />
+          desarrolladas durante el semestre.
         </p>
+      </div>
 
-        <div class="hero-buttons">
+      <!-- Name + CTA -->
+      <div class="hero-bottom">
+        <div class="hero-name-wrap">
+          <span class="hero-name-label">Estudiante</span>
+          <span class="hero-name">Magdalena González</span>
+        </div>
+        <div class="hero-cta">
           <a href="#actividades" class="btn-primary">Ver actividades</a>
-          <a href="#contacto" class="btn-secondary">Contacto</a>
+          <a href="#contacto"    class="btn-outline">Contacto</a>
         </div>
       </div>
 
-      <div class="hero-card reveal">
-        <div class="profile-orb">
-          <span>MG</span>
-        </div>
+    </div><!-- /hero-inner -->
 
-        <h2>Magdalena González</h2>
-        <p>Estudiante de Ciberseguridad</p>
-
-        <div class="mini-stats">
-          <div>
-            <strong>3</strong>
-            <span>Actividades</span>
-          </div>
-          <div>
-            <strong>100</strong>
-            <span>Taller</span>
-          </div>
-          <div>
-            <strong>97</strong>
-            <span>Investigación</span>
-          </div>
-        </div>
+    <!-- Marquee ticker -->
+    <div class="marquee-bar" aria-hidden="true">
+      <div class="marquee-track">
+        <span>PROGRAMACIÓN II</span><span class="mdot">◆</span>
+        <span>CIBERSEGURIDAD</span><span class="mdot">◆</span>
+        <span>UTP PANAMÁ</span><span class="mdot">◆</span>
+        <span>PORTAFOLIO 2026</span><span class="mdot">◆</span>
+        <span>MAGDALENA GONZÁLEZ</span><span class="mdot">◆</span>
+        <span>FACULTAD DE SISTEMAS</span><span class="mdot">◆</span>
+        <span>PROGRAMACIÓN II</span><span class="mdot">◆</span>
+        <span>CIBERSEGURIDAD</span><span class="mdot">◆</span>
+        <span>UTP PANAMÁ</span><span class="mdot">◆</span>
+        <span>PORTAFOLIO 2026</span><span class="mdot">◆</span>
+        <span>MAGDALENA GONZÁLEZ</span><span class="mdot">◆</span>
+        <span>FACULTAD DE SISTEMAS</span><span class="mdot">◆</span>
       </div>
-    </section>
+    </div>
 
-    <section id="sobre-mi" class="section about">
-      <div class="section-title reveal">
-        <p class="tag">Presentación personal</p>
-        <h2>Sobre mí</h2>
-      </div>
+  </section>
 
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>
-            Soy Magdalena González, estudiante de la Universidad Tecnológica de Panamá
-            en la carrera de Ciberseguridad. Este portafolio reúne las actividades
-            desarrolladas en la asignatura de Programación II, con el propósito de
-            mostrar el avance práctico, la organización de evidencias y la aplicación
-            de conocimientos relacionados con el desarrollo de soluciones informáticas.
-          </p>
 
-          <p>
-            Durante el semestre he trabajado en ejercicios, investigaciones y proyectos
-            que fortalecen la lógica de programación, el análisis de problemas, el uso
-            de herramientas digitales y la presentación estructurada de resultados.
-          </p>
-        </div>
+  <!-- ═══════════════════════════════════════════════════════
+       SOBRE MÍ
+  ════════════════════════════════════════════════════════ -->
+  <section class="about" id="sobre-mi">
+    <div class="about-inner">
 
-        <div class="info-panel reveal">
-          <div>
-            <span>Asignatura</span>
-            <strong>Programación II</strong>
-          </div>
-          <div>
-            <span>Profesor</span>
-            <strong>Napoleón Ibarra</strong>
-          </div>
-          <div>
-            <span>Universidad</span>
-            <strong>UTP</strong>
-          </div>
-          <div>
-            <span>Modalidad</span>
-            <strong>Portafolio digital</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="actividades" class="section projects">
-      <div class="section-title reveal">
-        <p class="tag">Trabajos realizados</p>
-        <h2>Actividades del semestre</h2>
+      <div class="about-left">
+        <div class="s-label reveal">/ 001 — SOBRE MÍ</div>
+        <h2 class="s-title reveal">
+          QUIÉN<br/><em>SOY</em><br/>YO.
+        </h2>
+        <div class="about-stripe reveal"></div>
       </div>
 
-      <div class="project-grid">
-
-        <article class="project-card reveal">
-          <div class="project-number">01</div>
-          <h3>Investigación 1</h3>
-          <p>
-            Trabajo de investigación enfocado en el análisis teórico y conceptual
-            de contenidos vinculados con la asignatura.
-          </p>
-
-          <div class="project-meta">
-            <span>Fecha: 27 de marzo</span>
-            <span>Nota: 97/100</span>
-          </div>
-
-          <a href="docs/investigacion-1.pdf" target="_blank" class="project-link">
-            Ver evidencia
-          </a>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-number">02</div>
-          <h3>Taller Práctico 1</h3>
-          <p>
-            Desarrollo de ejercicios prácticos orientados a reforzar la lógica,
-            la resolución de problemas y la aplicación de instrucciones vistas en clase.
-          </p>
-
-          <div class="project-meta">
-            <span>Fecha: 10 de abril</span>
-            <span>Nota: 100/100</span>
-          </div>
-
-          <a href="docs/taller-practico-1.pdf" target="_blank" class="project-link">
-            Ver evidencia
-          </a>
-        </article>
-
-        <article class="project-card featured reveal">
-          <div class="project-number">03</div>
-          <h3>Ejercicio Práctico 1</h3>
-          <p>
-            Proyecto práctico desarrollado como evidencia aplicada del curso.
-            Incluye análisis, diseño, desarrollo y presentación de una solución funcional.
-          </p>
-
-          <div class="project-meta">
-            <span>Fecha: 24 de abril</span>
-            <span>Estado: Entregado</span>
-          </div>
-
-          <a href="docs/ejercicio-practico-1.pdf" target="_blank" class="project-link">
-            Ver proyecto
-          </a>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="habilidades" class="section skills">
-      <div class="section-title reveal">
-        <p class="tag">Competencias técnicas</p>
-        <h2>Habilidades desarrolladas</h2>
-      </div>
-
-      <div class="skills-grid">
-
-        <div class="skill-card reveal">
-          <span>HTML</span>
-          <h3>Estructura web</h3>
-          <p>
-            Organización de contenido mediante etiquetas, secciones, enlaces,
-            imágenes y estructura semántica.
-          </p>
-        </div>
-
-        <div class="skill-card reveal">
-          <span>CSS</span>
-          <h3>Diseño visual</h3>
-          <p>
-            Aplicación de estilos, colores, animaciones, distribución visual
-            y adaptación del sitio a diferentes pantallas.
-          </p>
-        </div>
-
-        <div class="skill-card reveal">
-          <span>JS</span>
-          <h3>Interactividad</h3>
-          <p>
-            Uso de JavaScript para animaciones, efectos visuales y comportamiento
-            dinámico dentro de la página.
-          </p>
-        </div>
-
-        <div class="skill-card reveal">
-          <span>GitHub</span>
-          <h3>Publicación web</h3>
-          <p>
-            Organización de archivos, subida de proyectos y publicación mediante
-            GitHub Pages.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="evidencias" class="section evidence">
-      <div class="section-title reveal">
-        <p class="tag">Capturas y documentos</p>
-        <h2>Evidencias del portafolio</h2>
-      </div>
-
-      <div class="timeline">
-
-        <div class="timeline-item reveal">
-          <span>27 MAR</span>
-          <h3>Investigación 1</h3>
-          <p>Documento entregado y evaluado con 97/100.</p>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span>10 ABR</span>
-          <h3>Taller Práctico 1</h3>
-          <p>Actividad práctica devuelta con calificación de 100/100.</p>
-        </div>
-
-        <div class="timeline-item reveal">
-          <span>24 ABR</span>
-          <h3>Ejercicio Práctico 1</h3>
-          <p>Proyecto práctico entregado como parte del desarrollo del curso.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="contacto" class="section contact">
-      <div class="contact-box reveal">
-        <p class="tag">Contacto académico</p>
-        <h2>Magdalena González</h2>
-        <p>
-          Portafolio digital desarrollado para la asignatura de Programación II.
+      <div class="about-right">
+        <p class="about-text reveal-right">
+          Soy Magdalena González, estudiante de la Universidad Tecnológica de Panamá en la
+          carrera de Ciberseguridad. Este portafolio reúne las actividades realizadas en
+          Programación II, mostrando mi avance en análisis, desarrollo, organización de
+          evidencias y aplicación práctica de los contenidos trabajados durante el semestre.
         </p>
 
-        <a href="mailto:magdalena.gonzalez2@utp.ac.pa" class="btn-primary">
+        <div class="about-cards">
+          <div class="about-card reveal" style="--d:.05s">
+            <span class="about-card-icon">🎓</span>
+            <span class="about-card-lbl">Universidad</span>
+            <span class="about-card-val">UTP Panamá</span>
+          </div>
+          <div class="about-card reveal" style="--d:.12s">
+            <span class="about-card-icon">💻</span>
+            <span class="about-card-lbl">Asignatura</span>
+            <span class="about-card-val">Programación II</span>
+          </div>
+          <div class="about-card reveal" style="--d:.19s">
+            <span class="about-card-icon">👨‍🏫</span>
+            <span class="about-card-lbl">Profesor</span>
+            <span class="about-card-val">Napoleón Ibarra</span>
+          </div>
+          <div class="about-card reveal" style="--d:.26s">
+            <span class="about-card-icon">🛡️</span>
+            <span class="about-card-lbl">Carrera</span>
+            <span class="about-card-val">Ciberseguridad</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       ACTIVIDADES
+  ════════════════════════════════════════════════════════ -->
+  <section class="activities" id="actividades">
+    <div class="activities-head">
+      <div class="s-label reveal">/ 002 — ACTIVIDADES</div>
+      <h2 class="s-title reveal">
+        TRABAJOS<br/>DEL <em>SEMESTRE</em>
+      </h2>
+    </div>
+
+    <div class="activities-grid">
+
+      <!-- 01 -->
+      <article class="act-card reveal tilt-card" data-tilt>
+        <div class="act-num" aria-hidden="true">01</div>
+        <div class="act-body">
+          <span class="act-badge badge-done">Devuelto</span>
+          <h3 class="act-title">Investigación 1</h3>
+          <dl class="act-meta">
+            <div class="act-meta-row">
+              <dt>Fecha</dt>
+              <dd>27 de marzo</dd>
+            </div>
+            <div class="act-meta-row">
+              <dt>Calificación</dt>
+              <dd class="act-grade">97<small>/100</small></dd>
+            </div>
+          </dl>
+          <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="act-btn">
+            Abrir PDF <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="act-bar" aria-hidden="true"></div>
+      </article>
+
+      <!-- 02 -->
+      <article class="act-card reveal tilt-card" data-tilt style="--d:.1s">
+        <div class="act-num" aria-hidden="true">02</div>
+        <div class="act-body">
+          <span class="act-badge badge-done">Devuelto</span>
+          <h3 class="act-title">Taller Práctico 1</h3>
+          <dl class="act-meta">
+            <div class="act-meta-row">
+              <dt>Fecha</dt>
+              <dd>10 de abril</dd>
+            </div>
+            <div class="act-meta-row">
+              <dt>Calificación</dt>
+              <dd class="act-grade perfect">100<small>/100</small></dd>
+            </div>
+          </dl>
+          <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="act-btn">
+            Abrir PDF <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="act-bar" aria-hidden="true"></div>
+      </article>
+
+      <!-- 03 -->
+      <article class="act-card reveal tilt-card" data-tilt style="--d:.2s">
+        <div class="act-num" aria-hidden="true">03</div>
+        <div class="act-body">
+          <span class="act-badge badge-sent">Entregado</span>
+          <h3 class="act-title">Ejercicio Práctico 1</h3>
+          <dl class="act-meta">
+            <div class="act-meta-row">
+              <dt>Fecha</dt>
+              <dd>24 de abril</dd>
+            </div>
+            <div class="act-meta-row">
+              <dt>Calificación</dt>
+              <dd class="act-grade pending">—<small>/100</small></dd>
+            </div>
+          </dl>
+          <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="act-btn">
+            Abrir PDF <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="act-bar" aria-hidden="true"></div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       HABILIDADES
+  ════════════════════════════════════════════════════════ -->
+  <section class="skills" id="habilidades">
+    <div class="skills-stripes" aria-hidden="true"></div>
+    <div class="skills-inner">
+
+      <div class="s-label reveal light">/ 003 — HABILIDADES</div>
+      <h2 class="s-title light reveal">STACK &amp;<br/><em class="em-lime">CAPACIDADES</em></h2>
+
+      <div class="skill-chips">
+        <span class="skill-chip reveal" style="--d:.00s">HTML</span>
+        <span class="skill-chip reveal" style="--d:.07s">CSS</span>
+        <span class="skill-chip reveal" style="--d:.14s">JavaScript</span>
+        <span class="skill-chip reveal" style="--d:.21s">GitHub Pages</span>
+        <span class="skill-chip reveal" style="--d:.28s">Organización de evidencias</span>
+        <span class="skill-chip reveal" style="--d:.35s">Desarrollo web académico</span>
+      </div>
+
+      <div class="skill-bars">
+        <div class="skill-bar-item reveal" style="--d:.05s" data-pct="90">
+          <div class="sb-label"><span>HTML</span><span class="sb-pct">90%</span></div>
+          <div class="sb-track"><div class="sb-fill"></div></div>
+        </div>
+        <div class="skill-bar-item reveal" style="--d:.12s" data-pct="85">
+          <div class="sb-label"><span>CSS</span><span class="sb-pct">85%</span></div>
+          <div class="sb-track"><div class="sb-fill"></div></div>
+        </div>
+        <div class="skill-bar-item reveal" style="--d:.19s" data-pct="75">
+          <div class="sb-label"><span>JavaScript</span><span class="sb-pct">75%</span></div>
+          <div class="sb-track"><div class="sb-fill"></div></div>
+        </div>
+        <div class="skill-bar-item reveal" style="--d:.26s" data-pct="80">
+          <div class="sb-label"><span>GitHub Pages</span><span class="sb-pct">80%</span></div>
+          <div class="sb-track"><div class="sb-fill"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       EVIDENCIAS / TIMELINE
+  ════════════════════════════════════════════════════════ -->
+  <section class="evidence" id="evidencias">
+    <div class="evidence-inner">
+      <div class="s-label reveal">/ 004 — EVIDENCIAS</div>
+      <h2 class="s-title reveal">LÍNEA DE<br/><em>TIEMPO</em></h2>
+
+      <div class="timeline" role="list">
+
+        <div class="tl-line" aria-hidden="true"></div>
+
+        <!-- Item 1 -->
+        <div class="tl-item tl-left reveal-left" role="listitem">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-num" aria-hidden="true">01</span>
+            <time class="tl-date" datetime="2026-03-27">27 MAR 2026</time>
+            <h3 class="tl-title">Investigación 1</h3>
+            <div class="tl-result">
+              <span class="tl-badge tl-done">Devuelto</span>
+              <span class="tl-grade">97/100</span>
+            </div>
+            <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="tl-link">Ver documento ↗</a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="tl-item tl-right reveal-right" role="listitem">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-num" aria-hidden="true">02</span>
+            <time class="tl-date" datetime="2026-04-10">10 ABR 2026</time>
+            <h3 class="tl-title">Taller Práctico 1</h3>
+            <div class="tl-result">
+              <span class="tl-badge tl-done">Devuelto</span>
+              <span class="tl-grade perfect">100/100</span>
+            </div>
+            <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="tl-link">Ver documento ↗</a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="tl-item tl-left reveal-left" role="listitem">
+          <div class="tl-dot tl-dot-active"></div>
+          <div class="tl-card">
+            <span class="tl-num" aria-hidden="true">03</span>
+            <time class="tl-date" datetime="2026-04-24">24 ABR 2026</time>
+            <h3 class="tl-title">Ejercicio Práctico 1</h3>
+            <div class="tl-result">
+              <span class="tl-badge tl-sent">Entregado</span>
+              <span class="tl-grade pending">Pendiente</span>
+            </div>
+            <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="tl-link">Ver documento ↗</a>
+          </div>
+        </div>
+
+      </div><!-- /timeline -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACTO
+  ════════════════════════════════════════════════════════ -->
+  <section class="contact" id="contacto">
+    <div class="contact-slash" aria-hidden="true"></div>
+    <div class="contact-inner reveal">
+      <div class="s-label">/ 005 — CONTACTO</div>
+      <h2 class="contact-title">HABLEMOS<span class="accent-dot">.</span></h2>
+      <p class="contact-sub">Estudiante de Ciberseguridad — UTP Panamá</p>
+      <p class="contact-name">Magdalena González</p>
+
+      <div class="contact-links">
+        <a href="mailto:magdalena.gonzalez2@utp.ac.pa" class="c-btn c-email">
+          <span class="c-icon">✉</span>
           magdalena.gonzalez2@utp.ac.pa
         </a>
+        <a href="https://www.linkedin.com/in/magdalenagonzalezpanama" target="_blank" rel="noopener" class="c-btn c-linkedin">
+          <span class="c-icon">in</span>
+          LinkedIn
+        </a>
+        <a href="https://www.youtube.com/@MagdalenaGonzalez-te9wk" target="_blank" rel="noopener" class="c-btn c-youtube">
+          <span class="c-icon">▶</span>
+          YouTube
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
 
+  <!-- ─── FOOTER ────────────────────────────────────────── -->
   <footer class="footer">
-    <p>© 2026 Magdalena González — Portafolio de Programación II</p>
+    <div class="footer-inner">
+      <span class="footer-logo">MG<span>.</span>PORTFOLIO</span>
+      <span class="footer-copy">© 2026 Magdalena González — Portafolio de Programación II</span>
+    </div>
   </footer>
 
   <script src="js/main.js"></script>
