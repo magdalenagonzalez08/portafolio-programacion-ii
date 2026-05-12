@@ -1,314 +1,348 @@
-/* ════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    MG.PORTFOLIO — main.js
-   Magdalena González — Programación II — UTP 2026
-   ════════════════════════════════════════════════════════ */
+   Magdalena González | Programación II | UTP 2026
+   ═══════════════════════════════════════════════════════════ */
 
 (function () {
   'use strict';
 
-  /* ────────────────────────────────────────────────────
-     1. CUSTOM CURSOR — smooth lag-follow + scale on hover
-  ──────────────────────────────────────────────────── */
-  const cursor = document.getElementById('cursorGlow');
+  /* ──────────────────────────────────────────────────────────
+     1. DUAL CURSOR  — dot follows exactly, ring lags behind
+  ──────────────────────────────────────────────────────────── */
+  const dot  = document.getElementById('curDot');
+  const ring = document.getElementById('curRing');
 
-  if (cursor && window.matchMedia('(pointer: fine)').matches) {
-    let mx = 0, my = 0, cx = 0, cy = 0;
-    let rafId;
+  const isTouch = window.matchMedia('(pointer: coarse)').matches;
 
+  if (!isTouch && dot && ring) {
+    let mx = 0, my = 0;
+    let rx = 0, ry = 0;
+    const LAG = 0.13;
+
+    // Dot: follows mouse instantly
     document.addEventListener('mousemove', e => {
       mx = e.clientX;
       my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
     }, { passive: true });
 
-    function tickCursor() {
-      cx += (mx - cx) * 0.16;
-      cy += (my - cy) * 0.16;
-      cursor.style.left = cx + 'px';
-      cursor.style.top  = cy + 'px';
-      rafId = requestAnimationFrame(tickCursor);
+    // Ring: lerp to mouse position
+    function tickRing() {
+      rx += (mx - rx) * LAG;
+      ry += (my - ry) * LAG;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(tickRing);
     }
-    tickCursor();
+    tickRing();
 
-    // Scale on interactive elements
-    const hoverTargets = 'a, button, .act-card, .about-card, .skill-chip, .tl-link';
-    document.querySelectorAll(hoverTargets).forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'translate(-50%,-50%) scale(3.2)';
-        cursor.style.opacity   = '0.45';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-        cursor.style.opacity   = '1';
-      });
+    // Hover effect — ring grows on interactive elements
+    const targets = 'a, button, .rcard, .ic, .schip, .tl-link, .photo-frame';
+    document.querySelectorAll(targets).forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
 
-    document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
-    document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
-
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity  = '0';
+      ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity  = '1';
+      ring.style.opacity = '1';
+    });
   } else {
-    // On touch devices: remove cursor element & restore default cursor
-    if (cursor) cursor.remove();
-    document.body.style.cursor = '';
+    // Touch device — remove cursor elements
+    if (dot)  dot.remove();
+    if (ring) ring.remove();
+    document.body.style.cursor = 'auto';
   }
 
 
-  /* ────────────────────────────────────────────────────
-     2. HEADER — change style on scroll
-  ──────────────────────────────────────────────────── */
+  /* ──────────────────────────────────────────────────────────
+     2. HEADER — style change on scroll
+  ──────────────────────────────────────────────────────────── */
   const header = document.getElementById('header');
 
-  function onScroll() {
-    header.classList.toggle('scrolled', window.scrollY > 30);
+  function updateHeader() {
+    header.classList.toggle('scrolled', window.scrollY > 24);
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
 
 
-  /* ────────────────────────────────────────────────────
+  /* ──────────────────────────────────────────────────────────
      3. HAMBURGER / MOBILE NAV
-  ──────────────────────────────────────────────────── */
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
+  ──────────────────────────────────────────────────────────── */
+  const burger = document.getElementById('burger');
+  const mnav   = document.getElementById('mnav');
 
-  hamburger.addEventListener('click', () => {
-    const open = mobileNav.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-    hamburger.setAttribute('aria-expanded', open.toString());
-    mobileNav.setAttribute('aria-hidden', (!open).toString());
+  burger.addEventListener('click', () => {
+    const open = mnav.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open.toString());
+    mnav.setAttribute('aria-hidden', (!open).toString());
   });
 
-  // Close on link click
-  mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
+  document.querySelectorAll('.mnl').forEach(link => {
     link.addEventListener('click', () => {
-      mobileNav.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      mobileNav.setAttribute('aria-hidden', 'true');
+      mnav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      mnav.setAttribute('aria-hidden', 'true');
     });
   });
 
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mnav.classList.contains('open')) {
+      mnav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      mnav.setAttribute('aria-hidden', 'true');
+      burger.focus();
+    }
+  });
 
-  /* ────────────────────────────────────────────────────
-     4. SMOOTH SCROLL — account for fixed header height
-  ──────────────────────────────────────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const id = anchor.getAttribute('href');
+
+  /* ──────────────────────────────────────────────────────────
+     4. SMOOTH SCROLL — offset for fixed header
+  ──────────────────────────────────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
       if (id === '#') return;
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      const headerH = header.offsetHeight;
-      const top = target.getBoundingClientRect().top + window.scrollY - headerH - 8;
+      const top = target.getBoundingClientRect().top + window.scrollY - header.offsetHeight - 8;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
 
-  /* ────────────────────────────────────────────────────
-     5. SCROLL REVEAL — IntersectionObserver
-  ──────────────────────────────────────────────────── */
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  /* ──────────────────────────────────────────────────────────
+     5. ACTIVE NAV LINK on scroll
+  ──────────────────────────────────────────────────────────── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nl');
 
-  const revealObserver = new IntersectionObserver(entries => {
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id);
+      });
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => secObs.observe(s));
+
+
+  /* ──────────────────────────────────────────────────────────
+     6. SCROLL REVEAL — IntersectionObserver
+  ──────────────────────────────────────────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-r, .reveal-l');
+
+  const revObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('vis');
-      revealObserver.unobserve(entry.target); // fire once
+      revObs.unobserve(entry.target); // fire once
     });
   }, {
     threshold: 0.12,
     rootMargin: '0px 0px -40px 0px'
   });
 
-  revealEls.forEach(el => revealObserver.observe(el));
+  revealEls.forEach(el => revObs.observe(el));
 
 
-  /* ────────────────────────────────────────────────────
-     6. SKILL BARS — animate width when revealed
-  ──────────────────────────────────────────────────── */
-  const skillBarEls = document.querySelectorAll('.skill-bar-item');
+  /* ──────────────────────────────────────────────────────────
+     7. SKILL BARS — animate width on reveal
+  ──────────────────────────────────────────────────────────── */
+  const sbars = document.querySelectorAll('.sbar[data-pct]');
 
-  const barObserver = new IntersectionObserver(entries => {
+  const barObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      const el  = entry.target;
-      const pct = el.dataset.pct || '0';
-      const fill = el.querySelector('.sb-fill');
+      const pct  = entry.target.dataset.pct || '0';
+      const fill = entry.target.querySelector('.sbar-fill');
       if (fill) {
-        // Slight delay so the reveal fade plays first
-        setTimeout(() => { fill.style.width = pct + '%'; }, 300);
+        setTimeout(() => { fill.style.width = pct + '%'; }, 280);
       }
-      barObserver.unobserve(el);
+      barObs.unobserve(entry.target);
     });
   }, { threshold: 0.3 });
 
-  skillBarEls.forEach(el => barObserver.observe(el));
+  sbars.forEach(el => barObs.observe(el));
 
 
-  /* ────────────────────────────────────────────────────
-     7. 3D TILT — on activity cards
-  ──────────────────────────────────────────────────── */
-  const TILT_MAX = 11; // degrees
+  /* ──────────────────────────────────────────────────────────
+     8. 3D TILT — race cards
+  ──────────────────────────────────────────────────────────── */
+  const TILT = 10; // max degrees
 
   document.querySelectorAll('[data-tilt]').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width  / 2;
-      const cy = rect.height / 2;
-      const rotX = ((y - cy) / cy) * -TILT_MAX;
-      const rotY = ((x - cx) / cx) *  TILT_MAX;
+    let animId;
 
-      card.style.transition = 'transform .08s ease, box-shadow .4s, border-color .3s';
-      card.style.transform  = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.025,1.025,1.025)`;
+    card.addEventListener('mousemove', e => {
+      cancelAnimationFrame(animId);
+      animId = requestAnimationFrame(() => {
+        const r  = card.getBoundingClientRect();
+        const x  = e.clientX - r.left;
+        const y  = e.clientY - r.top;
+        const rx = ((y - r.height / 2) / (r.height / 2)) * -TILT;
+        const ry = ((x - r.width  / 2) / (r.width  / 2)) *  TILT;
+        card.style.transition = 'transform .08s ease, box-shadow .4s, border-color .3s';
+        card.style.transform  = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.025,1.025,1.025)`;
+      });
     });
 
     card.addEventListener('mouseleave', () => {
+      cancelAnimationFrame(animId);
       card.style.transition = 'transform .6s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .3s';
       card.style.transform  = 'perspective(900px) rotateX(0) rotateY(0) scale3d(1,1,1)';
     });
   });
 
 
-  /* ────────────────────────────────────────────────────
-     8. PARALLAX — hero inner layer on scroll
-  ──────────────────────────────────────────────────── */
-  const heroInner  = document.querySelector('.hero-inner');
-  const heroGrid   = document.querySelector('.hero-grid-bg');
-  const heroSlash  = document.querySelector('.hero-slash-bg');
-  const heroSlash2 = document.querySelector('.hero-slash-bg2');
+  /* ──────────────────────────────────────────────────────────
+     9. PARALLAX — hero layers move at different rates
+  ──────────────────────────────────────────────────────────── */
+  const heroLeft  = document.getElementById('heroLeft');
+  const heroRight = document.getElementById('heroRight');
+  const heroGrid  = document.querySelector('.hero-bg-grid');
+  const heroSlashA = document.querySelector('.hero-slash.ha');
+  const heroSlashB = document.querySelector('.hero-slash.hb');
+  const photoRoman = document.querySelector('.photo-roman');
 
-  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const heroSection = document.getElementById('inicio');
 
-  if (!isReducedMotion) {
+  if (!prefersReducedMotion) {
     window.addEventListener('scroll', () => {
       const sy = window.scrollY;
-      if (sy > window.innerHeight * 1.2) return; // skip if far past hero
+      if (!heroSection) return;
+      const heroH = heroSection.offsetHeight;
+      if (sy > heroH * 1.3) return; // skip when far past hero
 
-      if (heroInner)  heroInner.style.transform  = `translateY(${sy * 0.22}px)`;
-      if (heroGrid)   heroGrid.style.transform    = `translateY(${sy * 0.10}px)`;
-      if (heroSlash)  heroSlash.style.transform   = `skewX(-9deg) translateY(${sy * 0.14}px)`;
-      if (heroSlash2) heroSlash2.style.transform  = `skewX(-9deg) translateY(${sy * 0.08}px)`;
+      if (heroLeft)   heroLeft.style.transform   = `translateY(${sy * 0.18}px)`;
+      if (heroRight)  heroRight.style.transform  = `translateY(${sy * 0.12}px)`;
+      if (heroGrid)   heroGrid.style.transform   = `translateY(${sy * 0.08}px)`;
+      if (heroSlashA) heroSlashA.style.transform = `skewX(-10deg) translateY(${sy * 0.15}px)`;
+      if (heroSlashB) heroSlashB.style.transform = `skewX(-10deg) translateY(${sy * 0.1}px)`;
+      if (photoRoman) photoRoman.style.transform = `translateY(${sy * 0.25}px)`;
     }, { passive: true });
   }
 
 
-  /* ────────────────────────────────────────────────────
-     9. ACTIVE NAV LINK — highlight as you scroll
-  ──────────────────────────────────────────────────── */
-  const sections  = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav-link');
+  /* ──────────────────────────────────────────────────────────
+     10. BUTTON RIPPLE microinteraction
+  ──────────────────────────────────────────────────────────── */
+  const rippleTargets = '.btn-p, .btn-o, .rc-btn, .clink, .h-cta';
+  document.querySelectorAll(rippleTargets).forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height) * 1.5;
+      const x    = e.clientX - rect.left - size / 2;
+      const y    = e.clientY - rect.top  - size / 2;
 
-  const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      const rip = document.createElement('span');
+      Object.assign(rip.style, {
+        position:     'absolute',
+        left:         x + 'px',
+        top:          y + 'px',
+        width:        size + 'px',
+        height:       size + 'px',
+        background:   'rgba(255,255,255,.2)',
+        borderRadius: '50%',
+        transform:    'scale(0)',
+        animation:    'rippleOut .55s linear',
+        pointerEvents:'none',
       });
+
+      const pos = getComputedStyle(this).position;
+      if (pos === 'static') this.style.position = 'relative';
+      this.style.overflow = 'hidden';
+      this.appendChild(rip);
+      setTimeout(() => rip.remove(), 580);
     });
-  }, { threshold: 0.45 });
+  });
 
-  sections.forEach(s => sectionObserver.observe(s));
+  // Inject keyframe once
+  const kf = document.createElement('style');
+  kf.textContent = '@keyframes rippleOut { to { transform:scale(1); opacity:0; } }';
+  document.head.appendChild(kf);
 
 
-  /* ────────────────────────────────────────────────────
-     10. MARQUEE — pause on hover
-  ──────────────────────────────────────────────────── */
-  const marqueeTrack = document.querySelector('.marquee-track');
-  const marqueeBar   = document.querySelector('.marquee-bar');
+  /* ──────────────────────────────────────────────────────────
+     11. TIMELINE DOTS — pop when they enter view
+  ──────────────────────────────────────────────────────────── */
+  document.querySelectorAll('.tl-dot').forEach(dot => {
+    const dotObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = e.target;
+        d.style.transition = 'background .4s, box-shadow .4s, transform .4s var(--ease)';
+        d.style.transform  = 'scale(1.5)';
+        setTimeout(() => { d.style.transform = 'scale(1)'; }, 380);
+        dotObs.unobserve(d);
+      });
+    }, { threshold: 1.0 });
+    dotObs.observe(dot);
+  });
 
-  if (marqueeTrack && marqueeBar) {
-    marqueeBar.addEventListener('mouseenter', () => {
-      marqueeTrack.style.animationPlayState = 'paused';
-    });
-    marqueeBar.addEventListener('mouseleave', () => {
-      marqueeTrack.style.animationPlayState = 'running';
-    });
+
+  /* ──────────────────────────────────────────────────────────
+     12. SPEED LINES — subtle animated offset on scroll
+  ──────────────────────────────────────────────────────────── */
+  const speedLines = document.querySelectorAll('.sl');
+  if (!prefersReducedMotion && speedLines.length) {
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      speedLines.forEach((sl, i) => {
+        const dir   = i % 2 === 0 ? 1 : -1;
+        const speed = 0.04 + i * 0.01;
+        sl.style.transform = `rotate(-4deg) translateX(${sy * speed * dir}px)`;
+      });
+    }, { passive: true });
   }
 
 
-  /* ────────────────────────────────────────────────────
-     11. MICRO-INTERACTIONS — btn ripple on click
-  ──────────────────────────────────────────────────── */
-  document.querySelectorAll('.btn-primary, .btn-outline, .act-btn, .c-btn, .btn-header').forEach(btn => {
-    btn.addEventListener('click', function (e) {
-      const ripple = document.createElement('span');
-      const rect   = this.getBoundingClientRect();
-      const size   = Math.max(rect.width, rect.height) * 1.4;
-      const x      = e.clientX - rect.left - size / 2;
-      const y      = e.clientY - rect.top  - size / 2;
-
-      Object.assign(ripple.style, {
-        position:  'absolute',
-        left:      x + 'px',
-        top:       y + 'px',
-        width:     size + 'px',
-        height:    size + 'px',
-        background: 'rgba(255,255,255,.22)',
-        borderRadius: '50%',
-        transform:  'scale(0)',
-        animation:  'rippleOut .55s linear',
-        pointerEvents: 'none',
+  /* ──────────────────────────────────────────────────────────
+     13. FLOATING LABELS — slight parallax on mouse move
+  ──────────────────────────────────────────────────────────── */
+  const flabels = document.querySelectorAll('.flabel');
+  if (!isTouch && flabels.length) {
+    document.addEventListener('mousemove', e => {
+      const cx = window.innerWidth  / 2;
+      const cy = window.innerHeight / 2;
+      const dx = (e.clientX - cx) / cx;
+      const dy = (e.clientY - cy) / cy;
+      flabels.forEach((fl, i) => {
+        const factor = (i % 2 === 0 ? 1 : -1) * 6;
+        fl.style.transform = `translate(${dx * factor}px, ${dy * factor}px)`;
       });
+    }, { passive: true });
+  }
 
-      // Ensure relative positioning on the button
-      const currentPosition = getComputedStyle(this).position;
-      if (currentPosition === 'static') this.style.position = 'relative';
-      this.style.overflow = 'hidden';
-      this.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 600);
+
+  /* ──────────────────────────────────────────────────────────
+     14. PHOTO HOVER — slight scale + brightness on hover
+  ──────────────────────────────────────────────────────────── */
+  const photoFrame = document.getElementById('pFrame');
+  const photoImg   = photoFrame && photoFrame.querySelector('.photo-img');
+  if (photoFrame && photoImg) {
+    photoFrame.addEventListener('mouseenter', () => {
+      photoImg.style.transform  = 'scale(1.04)';
+      photoImg.style.filter     = 'brightness(1.05)';
+      photoImg.style.transition = 'transform .6s var(--ease), filter .4s';
     });
-  });
-
-  // Inject ripple keyframe once
-  const rippleStyle = document.createElement('style');
-  rippleStyle.textContent = `
-    @keyframes rippleOut {
-      to { transform: scale(1); opacity: 0; }
-    }
-  `;
-  document.head.appendChild(rippleStyle);
-
-
-  /* ────────────────────────────────────────────────────
-     12. ABOUT CARDS — stagger reveal via CSS delay
-        (already handled by --d custom property in HTML)
-  ──────────────────────────────────────────────────── */
-  // No additional JS needed — CSS transitions handle it.
-
-
-  /* ────────────────────────────────────────────────────
-     13. TIMELINE DOTS — animate when visible
-  ──────────────────────────────────────────────────── */
-  document.querySelectorAll('.tl-dot').forEach(dot => {
-    const dotObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.transition = 'background .4s, box-shadow .4s, transform .4s';
-          entry.target.style.transform  = 'scale(1.3)';
-          setTimeout(() => { entry.target.style.transform = 'scale(1)'; }, 350);
-          dotObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 1.0 });
-    dotObserver.observe(dot);
-  });
-
-
-  /* ────────────────────────────────────────────────────
-     14. KEYBOARD ACCESSIBILITY — close mobile nav on Esc
-  ──────────────────────────────────────────────────── */
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-      mobileNav.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      mobileNav.setAttribute('aria-hidden', 'true');
-      hamburger.focus();
-    }
-  });
+    photoFrame.addEventListener('mouseleave', () => {
+      photoImg.style.transform = 'scale(1)';
+      photoImg.style.filter    = 'brightness(1)';
+    });
+  }
 
 })();
