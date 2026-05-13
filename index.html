@@ -7,29 +7,41 @@
   <meta name="description" content="Portafolio académico de Magdalena González — Programación II, UTP Panamá, Ciberseguridad 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Dual cursor -->
-  <div class="cur-dot"  id="curDot"></div>
-  <div class="cur-ring" id="curRing"></div>
+  <!-- ══ LIGHTBOX ══════════════════════════════════════════ -->
+  <div class="lb" id="lb" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="lb-bg"  id="lbBg"></div>
+    <div class="lb-box">
+      <button class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
+      <img class="lb-img" id="lbImg" src="" alt="" />
+    </div>
+  </div>
 
-  <!-- ════════════ HEADER ════════════ -->
+  <!-- ══ DUAL CURSOR ═══════════════════════════════════════ -->
+  <div class="cur-dot"  id="curDot"></div>
+  <div class="cur-ring" id="curRing">
+    <span class="cur-code" id="curCode">&lt;/&gt;</span>
+  </div>
+
+  <!-- ══ HEADER ════════════════════════════════════════════ -->
   <header class="header" id="header">
-    <div class="h-inner">
+    <div class="h-in">
       <a href="#inicio" class="logo">MG<span>.</span>PORTFOLIO</a>
-      <nav class="nav" aria-label="Navegación principal">
+      <nav class="nav" aria-label="Navegación">
         <a href="#inicio"       class="nl">Inicio</a>
         <a href="#sobre-mi"    class="nl">Sobre mí</a>
         <a href="#actividades" class="nl">Actividades</a>
-        <a href="#habilidades" class="nl">Habilidades</a>
+        <a href="#certificados" class="nl">Certificados</a>
         <a href="#evidencias"  class="nl">Evidencias</a>
+        <a href="#habilidades" class="nl">Habilidades</a>
         <a href="#contacto"    class="nl">Contacto</a>
       </nav>
-      <a href="#actividades" class="h-cta">Ver portafolio <span aria-hidden="true">→</span></a>
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+      <a href="#actividades" class="h-cta">Ver portafolio <span>→</span></a>
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -40,90 +52,95 @@
     <a href="#inicio"       class="mnl">Inicio</a>
     <a href="#sobre-mi"    class="mnl">Sobre mí</a>
     <a href="#actividades" class="mnl">Actividades</a>
-    <a href="#habilidades" class="mnl">Habilidades</a>
+    <a href="#certificados" class="mnl">Certificados</a>
     <a href="#evidencias"  class="mnl">Evidencias</a>
+    <a href="#habilidades" class="mnl">Habilidades</a>
     <a href="#contacto"    class="mnl">Contacto</a>
   </div>
 
-  <!-- ════════════ HERO ════════════ -->
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
   <section class="hero" id="inicio">
-
-    <div class="hero-bg-grid"  aria-hidden="true"></div>
-    <div class="hero-slash ha" aria-hidden="true"></div>
-    <div class="hero-slash hb" aria-hidden="true"></div>
+    <div class="hero-grid"   aria-hidden="true"></div>
+    <div class="hero-slash a" aria-hidden="true"></div>
+    <div class="hero-slash b" aria-hidden="true"></div>
 
     <div class="hero-poster">
 
-      <!-- LEFT column: big editorial text -->
+      <!-- LEFT: text -->
       <div class="hero-left" id="heroLeft">
-
         <div class="h-tags">
           <span class="htag">UTP</span>
           <span class="htag">Programación II</span>
           <span class="htag">2026</span>
           <span class="htag">Ciberseguridad</span>
+          <span class="htag">GitHub Pages</span>
         </div>
-
-        <h1 class="hero-title" aria-label="Portafolio Programación II">
+        <h1 class="hero-title">
           <span class="ht l1">PORTA</span>
           <span class="ht l2">FOLIO</span>
         </h1>
-
         <div class="h-subrow">
-          <div class="h-subline" aria-hidden="true"></div>
+          <span class="h-subline"></span>
           <span class="h-sublbl">PROGRAMACIÓN II — UTP PANAMÁ</span>
         </div>
-
         <p class="h-name">Magdalena González</p>
-
-        <p class="h-desc">
-          Evidencias académicas, proyectos y actividades
-          desarrolladas durante el semestre.
-        </p>
-
+        <p class="h-desc">Evidencias académicas, proyectos y actividades desarrolladas durante el semestre.</p>
         <div class="h-btns">
           <a href="#actividades" class="btn-p">Ver actividades</a>
           <a href="#contacto"    class="btn-o">Contacto</a>
         </div>
+      </div>
 
-      </div><!-- /hero-left -->
-
-      <!-- RIGHT column: photo poster -->
+      <!-- RIGHT: photo with code overlay -->
       <div class="hero-right" id="heroRight">
 
-        <!-- Speed lines -->
         <div class="speed-lines" aria-hidden="true">
-          <div class="sl s1"></div>
-          <div class="sl s2"></div>
-          <div class="sl s3"></div>
-          <div class="sl s4"></div>
+          <div class="sl s1"></div><div class="sl s2"></div>
+          <div class="sl s3"></div><div class="sl s4"></div>
           <div class="sl s5"></div>
         </div>
 
-        <!-- Big roman numeral watermark -->
         <div class="photo-roman" aria-hidden="true">II</div>
 
-        <!-- Photo frame -->
+        <!-- Photo frame with code overlay -->
         <div class="photo-frame" id="pFrame">
           <img
             src="assets/img/perfil/magdalena.jpg"
-            alt="Magdalena González, estudiante de Ciberseguridad UTP"
+            alt="Magdalena González — Ciberseguridad UTP"
             class="photo-img"
             onerror="document.getElementById('pFrame').classList.add('img-err')"
           />
-          <!-- Fallback shown if image fails -->
           <div class="photo-fb" aria-hidden="true">MG</div>
-          <!-- Shimmer overlay -->
-          <div class="photo-shimmer" aria-hidden="true"></div>
+
+          <!-- Code overlay — appears on hover -->
+          <div class="code-overlay" aria-hidden="true">
+            <div class="co-corners">
+              <span class="co-tl"></span>
+              <span class="co-tr"></span>
+              <span class="co-bl"></span>
+              <span class="co-br"></span>
+            </div>
+            <div class="co-scan"></div>
+            <div class="co-lines">
+              <span class="co-line">const estudiante = "Magdalena";</span>
+              <span class="co-line">import { portfolio } from './utp';</span>
+              <span class="co-line">portfolio.render();</span>
+              <span class="co-line">ProgramacionII.deploy();</span>
+              <span class="co-line">console.log("Hello, World!");</span>
+              <span class="co-line">function cybersec() { return true; }</span>
+              <span class="co-line co-sym">&lt;/&gt; &nbsp; { } &nbsp; # &nbsp; =&gt;</span>
+            </div>
+            <div class="co-badge">VIEW CODE</div>
+          </div>
         </div>
 
-        <!-- Floating academic labels -->
+        <!-- Floating labels -->
         <div class="flabel fl-utp"   aria-hidden="true">UTP</div>
         <div class="flabel fl-prog"  aria-hidden="true">Prog. II</div>
         <div class="flabel fl-cyber" aria-hidden="true">Ciberseguridad</div>
         <div class="flabel fl-year"  aria-hidden="true">2026</div>
 
-        <!-- Mini name card -->
+        <!-- Name card -->
         <div class="namecard" aria-hidden="true">
           <div class="nc-av">MG</div>
           <div class="nc-info">
@@ -133,40 +150,39 @@
           <div class="nc-live"></div>
         </div>
 
-      </div><!-- /hero-right -->
-    </div><!-- /hero-poster -->
-
-    <!-- Marquee bar -->
-    <div class="mq-bar" aria-hidden="true">
-      <div class="mq-track" id="mqTrack">
-        <span>PROGRAMACIÓN II</span><b class="msep">◆</b>
-        <span>UTP PANAMÁ</span><b class="msep">◆</b>
-        <span>CIBERSEGURIDAD</span><b class="msep">◆</b>
-        <span>PORTAFOLIO DIGITAL</span><b class="msep">◆</b>
-        <span>MAGDALENA GONZÁLEZ</span><b class="msep">◆</b>
-        <span>FACULTAD DE SISTEMAS</span><b class="msep">◆</b>
-        <span>PROGRAMACIÓN II</span><b class="msep">◆</b>
-        <span>UTP PANAMÁ</span><b class="msep">◆</b>
-        <span>CIBERSEGURIDAD</span><b class="msep">◆</b>
-        <span>PORTAFOLIO DIGITAL</span><b class="msep">◆</b>
-        <span>MAGDALENA GONZÁLEZ</span><b class="msep">◆</b>
-        <span>FACULTAD DE SISTEMAS</span><b class="msep">◆</b>
       </div>
     </div>
 
-  </section><!-- /hero -->
+    <!-- Marquee -->
+    <div class="mq-bar" aria-hidden="true">
+      <div class="mq-track">
+        <span>PROGRAMACIÓN II</span><b>◆</b>
+        <span>UTP PANAMÁ</span><b>◆</b>
+        <span>CIBERSEGURIDAD</span><b>◆</b>
+        <span>GITHUB PAGES</span><b>◆</b>
+        <span>PORTAFOLIO DIGITAL</span><b>◆</b>
+        <span>MAGDALENA GONZÁLEZ</span><b>◆</b>
+        <span>FACULTAD DE SISTEMAS</span><b>◆</b>
+        <span>PROGRAMACIÓN II</span><b>◆</b>
+        <span>UTP PANAMÁ</span><b>◆</b>
+        <span>CIBERSEGURIDAD</span><b>◆</b>
+        <span>GITHUB PAGES</span><b>◆</b>
+        <span>PORTAFOLIO DIGITAL</span><b>◆</b>
+        <span>MAGDALENA GONZÁLEZ</span><b>◆</b>
+        <span>FACULTAD DE SISTEMAS</span><b>◆</b>
+      </div>
+    </div>
+  </section>
 
 
-  <!-- ════════════ SOBRE MÍ ════════════ -->
+  <!-- ══ SOBRE MÍ ══════════════════════════════════════════ -->
   <section class="about" id="sobre-mi">
     <div class="about-wrap">
-
       <div class="about-l">
-        <div class="sec-label reveal">/ 001 — SOBRE MÍ</div>
-        <h2 class="sec-title reveal">QUIÉN<br/><em>SOY</em><br/>YO.</h2>
+        <div class="slbl reveal">/ 001 — SOBRE MÍ</div>
+        <h2 class="stitle reveal">QUIÉN<br/><em>SOY</em><br/>YO.</h2>
         <div class="sec-stripe reveal"></div>
       </div>
-
       <div class="about-r">
         <p class="about-text reveal-r">
           Soy Magdalena González, estudiante de la Universidad Tecnológica de Panamá
@@ -175,26 +191,278 @@
           organización de evidencias y aplicación práctica de los contenidos
           trabajados durante el semestre.
         </p>
-        <div class="info-cards">
-          <div class="ic reveal" style="--di:.00s">
-            <span class="ic-icon">🎓</span>
-            <span class="ic-lbl">Universidad</span>
-            <span class="ic-val">UTP Panamá</span>
+        <div class="ic-grid">
+          <div class="ic reveal" style="--di:.00s"><span class="ic-icon">🎓</span><span class="ic-lbl">Universidad</span><span class="ic-val">UTP Panamá</span></div>
+          <div class="ic reveal" style="--di:.08s"><span class="ic-icon">💻</span><span class="ic-lbl">Asignatura</span><span class="ic-val">Programación II</span></div>
+          <div class="ic reveal" style="--di:.16s"><span class="ic-icon">👨‍🏫</span><span class="ic-lbl">Profesor</span><span class="ic-val">Napoleón Ibarra</span></div>
+          <div class="ic reveal" style="--di:.24s"><span class="ic-icon">🛡️</span><span class="ic-lbl">Carrera</span><span class="ic-val">Ciberseguridad</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ ACTIVIDADES ═══════════════════════════════════════ -->
+  <section class="acts" id="actividades">
+    <div class="acts-head">
+      <div class="slbl reveal">/ 002 — ACTIVIDADES</div>
+      <h2 class="stitle reveal">TRABAJOS<br/>DEL <em>SEMESTRE</em></h2>
+    </div>
+    <div class="acts-grid">
+
+      <!-- 01 -->
+      <article class="rcard reveal" data-tilt style="--di:.00s">
+        <div class="rcard-img-wrap">
+          <img src="assets/img/proyectos/investigacion-1/portada.png"
+               alt="Investigación 1 — portada"
+               class="rcard-img"
+               onerror="this.closest('.rcard-img-wrap').classList.add('img-fail')">
+          <div class="rcard-img-fb"><span>Investigación 1</span></div>
+          <div class="rcard-img-hover">
+            <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF ↗</a>
           </div>
-          <div class="ic reveal" style="--di:.08s">
-            <span class="ic-icon">💻</span>
-            <span class="ic-lbl">Asignatura</span>
-            <span class="ic-val">Programación II</span>
+        </div>
+        <div class="rcard-top">
+          <div class="rcard-num" aria-hidden="true">01</div>
+          <span class="rcbadge rc-done">Devuelto</span>
+        </div>
+        <div class="rcard-body">
+          <h3 class="rcard-title">Investigación 1</h3>
+          <dl class="rcard-meta">
+            <div class="rmr"><dt>Fecha</dt><dd>27 de marzo</dd></div>
+            <div class="rmr"><dt>Calificación</dt><dd class="rcgrade">97<small>/100</small></dd></div>
+          </dl>
+          <div class="rcard-btns">
+            <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF ↗</a>
+            <a href="#evidencias" class="rc-btn-o">Ver evidencias</a>
           </div>
-          <div class="ic reveal" style="--di:.16s">
-            <span class="ic-icon">👨‍🏫</span>
-            <span class="ic-lbl">Profesor</span>
-            <span class="ic-val">Napoleón Ibarra</span>
+        </div>
+        <div class="rcard-speed" aria-hidden="true"></div>
+      </article>
+
+      <!-- 02 -->
+      <article class="rcard reveal" data-tilt style="--di:.12s">
+        <div class="rcard-img-wrap">
+          <img src="assets/img/proyectos/taller-practico-1/portada.png"
+               alt="Taller Práctico 1 — portada"
+               class="rcard-img"
+               onerror="this.closest('.rcard-img-wrap').classList.add('img-fail')">
+          <div class="rcard-img-fb"><span>Taller Práctico 1</span></div>
+          <div class="rcard-img-hover">
+            <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF ↗</a>
           </div>
-          <div class="ic reveal" style="--di:.24s">
-            <span class="ic-icon">🛡️</span>
-            <span class="ic-lbl">Carrera</span>
-            <span class="ic-val">Ciberseguridad</span>
+        </div>
+        <div class="rcard-top">
+          <div class="rcard-num" aria-hidden="true">02</div>
+          <span class="rcbadge rc-done">Devuelto</span>
+        </div>
+        <div class="rcard-body">
+          <h3 class="rcard-title">Taller Práctico 1</h3>
+          <dl class="rcard-meta">
+            <div class="rmr"><dt>Fecha</dt><dd>10 de abril</dd></div>
+            <div class="rmr"><dt>Calificación</dt><dd class="rcgrade perfect">100<small>/100</small></dd></div>
+          </dl>
+          <div class="rcard-btns">
+            <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF ↗</a>
+            <a href="#evidencias" class="rc-btn-o">Ver evidencias</a>
+          </div>
+        </div>
+        <div class="rcard-speed" aria-hidden="true"></div>
+      </article>
+
+      <!-- 03 -->
+      <article class="rcard reveal" data-tilt style="--di:.24s">
+        <div class="rcard-img-wrap">
+          <img src="assets/img/proyectos/ejercicio-practico-1/portada.png"
+               alt="Ejercicio Práctico 1 — portada"
+               class="rcard-img"
+               onerror="this.closest('.rcard-img-wrap').classList.add('img-fail')">
+          <div class="rcard-img-fb"><span>Ejercicio Práctico 1</span></div>
+          <div class="rcard-img-hover">
+            <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF ↗</a>
+          </div>
+        </div>
+        <div class="rcard-top">
+          <div class="rcard-num" aria-hidden="true">03</div>
+          <span class="rcbadge rc-sent">Entregado</span>
+        </div>
+        <div class="rcard-body">
+          <h3 class="rcard-title">Ejercicio Práctico 1</h3>
+          <dl class="rcard-meta">
+            <div class="rmr"><dt>Fecha</dt><dd>24 de abril</dd></div>
+            <div class="rmr"><dt>Calificación</dt><dd class="rcgrade pending">—<small>/100</small></dd></div>
+          </dl>
+          <div class="rcard-btns">
+            <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF ↗</a>
+            <a href="#evidencias" class="rc-btn-o">Ver evidencias</a>
+          </div>
+        </div>
+        <div class="rcard-speed" aria-hidden="true"></div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ══ CERTIFICADOS ══════════════════════════════════════ -->
+  <section class="certs" id="certificados">
+    <div class="certs-noise" aria-hidden="true"></div>
+    <div class="certs-wrap">
+      <div class="slbl reveal lite">/ 003 — CERTIFICADOS</div>
+      <h2 class="stitle lite reveal">LOGROS &amp;<br/><em class="lime">CURSOS</em></h2>
+      <div class="certs-grid">
+
+        <!-- Java -->
+        <div class="cert-card reveal" data-tilt style="--di:.00s"
+             data-lb="assets/img/certificados/java.png"
+             data-lb-alt="Certificado Java">
+          <div class="cert-img-wrap">
+            <img src="assets/img/certificados/java.png"
+                 alt="Certificado Java"
+                 class="cert-img"
+                 onerror="this.closest('.cert-img-wrap').classList.add('img-fail')">
+            <div class="cert-img-fb">JAVA</div>
+            <div class="cert-hover-layer">
+              <span class="cert-hover-icon">🔍</span>
+              <span class="cert-hover-txt">Ver certificado</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Java</h3>
+            <p class="cert-desc">Fundamentos de programación, clases, métodos y lógica orientada a objetos.</p>
+          </div>
+          <div class="cert-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- MySQL -->
+        <div class="cert-card reveal" data-tilt style="--di:.12s"
+             data-lb="assets/img/certificados/mysql.png"
+             data-lb-alt="Certificado MySQL">
+          <div class="cert-img-wrap">
+            <img src="assets/img/certificados/mysql.png"
+                 alt="Certificado MySQL"
+                 class="cert-img"
+                 onerror="this.closest('.cert-img-wrap').classList.add('img-fail')">
+            <div class="cert-img-fb">MySQL</div>
+            <div class="cert-hover-layer">
+              <span class="cert-hover-icon">🔍</span>
+              <span class="cert-hover-txt">Ver certificado</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">MySQL</h3>
+            <p class="cert-desc">Creación de tablas, consultas básicas y organización de información en bases de datos.</p>
+          </div>
+          <div class="cert-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- Cisco -->
+        <div class="cert-card reveal" data-tilt style="--di:.24s"
+             data-lb="assets/img/certificados/cisco.png"
+             data-lb-alt="Certificado Cisco Ciberseguridad">
+          <div class="cert-img-wrap">
+            <img src="assets/img/certificados/cisco.png"
+                 alt="Cisco Introducción a Ciberseguridad"
+                 class="cert-img"
+                 onerror="this.closest('.cert-img-wrap').classList.add('img-fail')">
+            <div class="cert-img-fb">CISCO</div>
+            <div class="cert-hover-layer">
+              <span class="cert-hover-icon">🔍</span>
+              <span class="cert-hover-txt">Ver certificado</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <h3 class="cert-title">Cisco — Ciberseguridad</h3>
+            <p class="cert-desc">Introducción a conceptos de ciberseguridad, redes, vulnerabilidades y protección digital.</p>
+          </div>
+          <div class="cert-glow" aria-hidden="true"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ EVIDENCIAS / GALERÍA ══════════════════════════════ -->
+  <section class="evid" id="evidencias">
+    <div class="evid-wrap">
+      <div class="slbl reveal">/ 004 — EVIDENCIAS</div>
+      <h2 class="stitle reveal">GALERÍA DE<br/><em>CAPTURAS</em></h2>
+
+      <!-- Investigación 1 -->
+      <div class="evid-project reveal">
+        <div class="evid-project-head">
+          <span class="ep-num">01</span>
+          <div>
+            <h3 class="ep-title">Investigación 1</h3>
+            <span class="ep-meta">27 de marzo · 97/100 · Devuelto</span>
+          </div>
+          <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF ↗</a>
+        </div>
+        <div class="evid-grid">
+          <div class="eg-item" data-lb="assets/img/proyectos/investigacion-1/portada.png" data-lb-alt="Investigación 1 — Portada">
+            <img src="assets/img/proyectos/investigacion-1/portada.png" alt="Portada Investigación 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
+            <div class="eg-fb">Investigación 1</div>
+            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+            <span class="eg-label">Portada</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Taller Práctico 1 -->
+      <div class="evid-project reveal" style="--di:.1s">
+        <div class="evid-project-head">
+          <span class="ep-num">02</span>
+          <div>
+            <h3 class="ep-title">Taller Práctico 1</h3>
+            <span class="ep-meta">10 de abril · 100/100 · Devuelto</span>
+          </div>
+          <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF ↗</a>
+        </div>
+        <div class="evid-grid">
+          <div class="eg-item" data-lb="assets/img/proyectos/taller-practico-1/portada.png" data-lb-alt="Taller Práctico 1 — Portada">
+            <img src="assets/img/proyectos/taller-practico-1/portada.png" alt="Portada Taller Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
+            <div class="eg-fb">Taller Práctico 1</div>
+            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+            <span class="eg-label">Portada</span>
+          </div>
+          <div class="eg-item" data-lb="assets/img/proyectos/taller-practico-1/captura-1.png" data-lb-alt="Taller Práctico 1 — Captura 1">
+            <img src="assets/img/proyectos/taller-practico-1/captura-1.png" alt="Captura 1 Taller Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
+            <div class="eg-fb">Taller — Captura 1</div>
+            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+            <span class="eg-label">Captura 1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio Práctico 1 -->
+      <div class="evid-project reveal" style="--di:.2s">
+        <div class="evid-project-head">
+          <span class="ep-num">03</span>
+          <div>
+            <h3 class="ep-title">Ejercicio Práctico 1</h3>
+            <span class="ep-meta">24 de abril · Entregado</span>
+          </div>
+          <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF ↗</a>
+        </div>
+        <div class="evid-grid">
+          <div class="eg-item" data-lb="assets/img/proyectos/ejercicio-practico-1/portada.png" data-lb-alt="Ejercicio Práctico 1 — Portada">
+            <img src="assets/img/proyectos/ejercicio-practico-1/portada.png" alt="Portada Ejercicio Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
+            <div class="eg-fb">Ejercicio Práctico 1</div>
+            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+            <span class="eg-label">Portada</span>
+          </div>
+          <div class="eg-item" data-lb="assets/img/proyectos/ejercicio-practico-1/captura-1.png" data-lb-alt="Ejercicio Práctico 1 — Captura 1">
+            <img src="assets/img/proyectos/ejercicio-practico-1/captura-1.png" alt="Captura 1 Ejercicio Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
+            <div class="eg-fb">Ejercicio — Captura 1</div>
+            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+            <span class="eg-label">Captura 1</span>
+          </div>
+          <div class="eg-item" data-lb="assets/img/proyectos/ejercicio-practico-1/captura-2.png" data-lb-alt="Ejercicio Práctico 1 — Captura 2">
+            <img src="assets/img/proyectos/ejercicio-practico-1/captura-2.png" alt="Captura 2 Ejercicio Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
+            <div class="eg-fb">Ejercicio — Captura 2</div>
+            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+            <span class="eg-label">Captura 2</span>
           </div>
         </div>
       </div>
@@ -203,92 +471,12 @@
   </section>
 
 
-  <!-- ════════════ ACTIVIDADES ════════════ -->
-  <section class="acts" id="actividades">
-    <div class="acts-head">
-      <div class="sec-label reveal">/ 002 — ACTIVIDADES</div>
-      <h2 class="sec-title reveal">TRABAJOS<br/>DEL <em>SEMESTRE</em></h2>
-    </div>
-
-    <div class="acts-grid">
-
-      <!-- 01 -->
-      <article class="rcard reveal" data-tilt style="--di:.00s">
-        <div class="rcard-top">
-          <div class="rcard-num" aria-hidden="true">01</div>
-          <span class="rc-badge rc-done">Devuelto</span>
-        </div>
-        <div class="rcard-body">
-          <h3 class="rcard-title">Investigación 1</h3>
-          <dl class="rcard-meta">
-            <div class="rm-row"><dt>Fecha</dt><dd>27 de marzo</dd></div>
-            <div class="rm-row">
-              <dt>Calificación</dt>
-              <dd class="rc-grade">97<small>/100</small></dd>
-            </div>
-          </dl>
-          <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="rc-btn">
-            Abrir evidencia <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <div class="rcard-speed" aria-hidden="true"></div>
-      </article>
-
-      <!-- 02 -->
-      <article class="rcard reveal" data-tilt style="--di:.12s">
-        <div class="rcard-top">
-          <div class="rcard-num" aria-hidden="true">02</div>
-          <span class="rc-badge rc-done">Devuelto</span>
-        </div>
-        <div class="rcard-body">
-          <h3 class="rcard-title">Taller Práctico 1</h3>
-          <dl class="rcard-meta">
-            <div class="rm-row"><dt>Fecha</dt><dd>10 de abril</dd></div>
-            <div class="rm-row">
-              <dt>Calificación</dt>
-              <dd class="rc-grade perfect">100<small>/100</small></dd>
-            </div>
-          </dl>
-          <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="rc-btn">
-            Abrir evidencia <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <div class="rcard-speed" aria-hidden="true"></div>
-      </article>
-
-      <!-- 03 -->
-      <article class="rcard reveal" data-tilt style="--di:.24s">
-        <div class="rcard-top">
-          <div class="rcard-num" aria-hidden="true">03</div>
-          <span class="rc-badge rc-sent">Entregado</span>
-        </div>
-        <div class="rcard-body">
-          <h3 class="rcard-title">Ejercicio Práctico 1</h3>
-          <dl class="rcard-meta">
-            <div class="rm-row"><dt>Fecha</dt><dd>24 de abril</dd></div>
-            <div class="rm-row">
-              <dt>Calificación</dt>
-              <dd class="rc-grade pending">—<small>/100</small></dd>
-            </div>
-          </dl>
-          <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="rc-btn">
-            Abrir evidencia <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <div class="rcard-speed" aria-hidden="true"></div>
-      </article>
-
-    </div>
-  </section>
-
-
-  <!-- ════════════ HABILIDADES ════════════ -->
+  <!-- ══ HABILIDADES ═══════════════════════════════════════ -->
   <section class="skills" id="habilidades">
     <div class="skills-noise" aria-hidden="true"></div>
     <div class="skills-wrap">
-      <div class="sec-label reveal lite">/ 003 — HABILIDADES</div>
-      <h2 class="sec-title lite reveal">STACK &amp;<br/><em class="lime">CAPACIDADES</em></h2>
-
+      <div class="slbl reveal lite">/ 005 — HABILIDADES</div>
+      <h2 class="stitle lite reveal">STACK &amp;<br/><em class="lime">CAPACIDADES</em></h2>
       <div class="schips">
         <span class="schip reveal" style="--di:.00s">HTML5</span>
         <span class="schip reveal" style="--di:.07s">CSS3</span>
@@ -297,7 +485,6 @@
         <span class="schip reveal" style="--di:.28s">Organización de evidencias</span>
         <span class="schip reveal" style="--di:.35s">Desarrollo web académico</span>
       </div>
-
       <div class="sbars">
         <div class="sbar reveal" style="--di:.00s" data-pct="90">
           <div class="sbar-hd"><span>HTML5</span><span class="sbar-n">90%</span></div>
@@ -320,67 +507,11 @@
   </section>
 
 
-  <!-- ════════════ EVIDENCIAS ════════════ -->
-  <section class="evid" id="evidencias">
-    <div class="evid-wrap">
-      <div class="sec-label reveal">/ 004 — EVIDENCIAS</div>
-      <h2 class="sec-title reveal">LÍNEA DE<br/><em>TIEMPO</em></h2>
-
-      <div class="timeline" role="list">
-        <div class="tl-axis" aria-hidden="true"></div>
-
-        <div class="tl-item tl-l reveal-l" role="listitem">
-          <div class="tl-dot"></div>
-          <div class="tl-card">
-            <span class="tl-n" aria-hidden="true">01</span>
-            <time class="tl-date" datetime="2026-03-27">27 MAR 2026</time>
-            <h3 class="tl-title">Investigación 1</h3>
-            <div class="tl-row">
-              <span class="tlbadge tbd-done">Devuelto</span>
-              <span class="tl-score">97/100</span>
-            </div>
-            <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="tl-link">Ver documento ↗</a>
-          </div>
-        </div>
-
-        <div class="tl-item tl-r reveal-r" role="listitem">
-          <div class="tl-dot"></div>
-          <div class="tl-card">
-            <span class="tl-n" aria-hidden="true">02</span>
-            <time class="tl-date" datetime="2026-04-10">10 ABR 2026</time>
-            <h3 class="tl-title">Taller Práctico 1</h3>
-            <div class="tl-row">
-              <span class="tlbadge tbd-done">Devuelto</span>
-              <span class="tl-score perfect">100/100</span>
-            </div>
-            <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="tl-link">Ver documento ↗</a>
-          </div>
-        </div>
-
-        <div class="tl-item tl-l reveal-l" role="listitem">
-          <div class="tl-dot tl-active"></div>
-          <div class="tl-card">
-            <span class="tl-n" aria-hidden="true">03</span>
-            <time class="tl-date" datetime="2026-04-24">24 ABR 2026</time>
-            <h3 class="tl-title">Ejercicio Práctico 1</h3>
-            <div class="tl-row">
-              <span class="tlbadge tbd-sent">Entregado</span>
-              <span class="tl-score pending">Pendiente</span>
-            </div>
-            <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="tl-link">Ver documento ↗</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ════════════ CONTACTO ════════════ -->
+  <!-- ══ CONTACTO ══════════════════════════════════════════ -->
   <section class="contact" id="contacto">
-    <div class="contact-dark-slash" aria-hidden="true"></div>
+    <div class="contact-slash" aria-hidden="true"></div>
     <div class="contact-wrap reveal">
-      <div class="sec-label inv">/ 005 — CONTACTO</div>
+      <div class="slbl inv">/ 006 — CONTACTO</div>
       <h2 class="contact-big">CONE<br/>CTEMOS<span class="cb-dot">.</span></h2>
       <p class="contact-sub">Magdalena González — UTP Panamá — Ciberseguridad</p>
       <div class="c-links">
@@ -398,7 +529,7 @@
   </section>
 
 
-  <!-- Footer -->
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
   <footer class="foot">
     <div class="foot-in">
       <span class="foot-logo">MG<span>.</span>PORTFOLIO</span>
