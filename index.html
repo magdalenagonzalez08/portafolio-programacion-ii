@@ -12,36 +12,34 @@
 </head>
 <body>
 
-  <!-- ══ LIGHTBOX ══════════════════════════════════════════ -->
-  <div class="lb" id="lb" aria-modal="true" role="dialog" aria-hidden="true">
-    <div class="lb-bg"  id="lbBg"></div>
+  <!-- ══ LIGHTBOX — hidden by default ═══════════════════ -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Imagen ampliada" aria-hidden="true">
+    <div class="lb-bg" id="lbBg"></div>
     <div class="lb-box">
-      <button class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
+      <button class="lb-close" id="lbClose" aria-label="Cerrar imagen">&#x2715;</button>
       <img class="lb-img" id="lbImg" src="" alt="" />
     </div>
   </div>
 
-  <!-- ══ DUAL CURSOR ═══════════════════════════════════════ -->
-  <div class="cur-dot"  id="curDot"></div>
-  <div class="cur-ring" id="curRing">
-    <span class="cur-code" id="curCode">&lt;/&gt;</span>
-  </div>
+  <!-- ══ CURSOR — pointer-events: none via CSS ══════════ -->
+  <div class="cur-dot"  id="curDot"  aria-hidden="true"></div>
+  <div class="cur-ring" id="curRing" aria-hidden="true"></div>
 
-  <!-- ══ HEADER ════════════════════════════════════════════ -->
+  <!-- ══ HEADER ═════════════════════════════════════════ -->
   <header class="header" id="header">
     <div class="h-in">
       <a href="#inicio" class="logo">MG<span>.</span>PORTFOLIO</a>
-      <nav class="nav" aria-label="Navegación">
-        <a href="#inicio"       class="nl">Inicio</a>
-        <a href="#sobre-mi"    class="nl">Sobre mí</a>
-        <a href="#actividades" class="nl">Actividades</a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#inicio"        class="nl">Inicio</a>
+        <a href="#sobre-mi"     class="nl">Sobre mí</a>
+        <a href="#actividades"  class="nl">Actividades</a>
         <a href="#certificados" class="nl">Certificados</a>
-        <a href="#evidencias"  class="nl">Evidencias</a>
-        <a href="#habilidades" class="nl">Habilidades</a>
-        <a href="#contacto"    class="nl">Contacto</a>
+        <a href="#evidencias"   class="nl">Evidencias</a>
+        <a href="#habilidades"  class="nl">Habilidades</a>
+        <a href="#contacto"     class="nl">Contacto</a>
       </nav>
-      <a href="#actividades" class="h-cta">Ver portafolio <span>→</span></a>
-      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false">
+      <a href="#actividades" class="h-cta">Ver portafolio <span aria-hidden="true">&#x2192;</span></a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -49,25 +47,27 @@
 
   <!-- Mobile nav -->
   <div class="mnav" id="mnav" aria-hidden="true">
-    <a href="#inicio"       class="mnl">Inicio</a>
-    <a href="#sobre-mi"    class="mnl">Sobre mí</a>
-    <a href="#actividades" class="mnl">Actividades</a>
+    <a href="#inicio"        class="mnl">Inicio</a>
+    <a href="#sobre-mi"     class="mnl">Sobre mí</a>
+    <a href="#actividades"  class="mnl">Actividades</a>
     <a href="#certificados" class="mnl">Certificados</a>
-    <a href="#evidencias"  class="mnl">Evidencias</a>
-    <a href="#habilidades" class="mnl">Habilidades</a>
-    <a href="#contacto"    class="mnl">Contacto</a>
+    <a href="#evidencias"   class="mnl">Evidencias</a>
+    <a href="#habilidades"  class="mnl">Habilidades</a>
+    <a href="#contacto"     class="mnl">Contacto</a>
   </div>
 
-  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <!-- ══ 1. HERO ════════════════════════════════════════ -->
   <section class="hero" id="inicio">
-    <div class="hero-grid"   aria-hidden="true"></div>
+
+    <div class="hero-grid"    aria-hidden="true"></div>
     <div class="hero-slash a" aria-hidden="true"></div>
     <div class="hero-slash b" aria-hidden="true"></div>
 
     <div class="hero-poster">
 
-      <!-- LEFT: text -->
+      <!-- LEFT: editorial text -->
       <div class="hero-left" id="heroLeft">
+
         <div class="h-tags">
           <span class="htag">UTP</span>
           <span class="htag">Programación II</span>
@@ -75,64 +75,97 @@
           <span class="htag">Ciberseguridad</span>
           <span class="htag">GitHub Pages</span>
         </div>
+
         <h1 class="hero-title">
           <span class="ht l1">PORTA</span>
           <span class="ht l2">FOLIO</span>
         </h1>
+
         <div class="h-subrow">
-          <span class="h-subline"></span>
+          <span class="h-subline" aria-hidden="true"></span>
           <span class="h-sublbl">PROGRAMACIÓN II — UTP PANAMÁ</span>
         </div>
+
         <p class="h-name">Magdalena González</p>
-        <p class="h-desc">Evidencias académicas, proyectos y actividades desarrolladas durante el semestre.</p>
+
+        <p class="h-desc">
+          Evidencias académicas, proyectos y actividades
+          desarrolladas durante el semestre.
+        </p>
+
         <div class="h-btns">
           <a href="#actividades" class="btn-p">Ver actividades</a>
           <a href="#contacto"    class="btn-o">Contacto</a>
         </div>
-      </div>
+
+      </div><!-- /hero-left -->
 
       <!-- RIGHT: photo with code overlay -->
       <div class="hero-right" id="heroRight">
 
         <div class="speed-lines" aria-hidden="true">
-          <div class="sl s1"></div><div class="sl s2"></div>
-          <div class="sl s3"></div><div class="sl s4"></div>
+          <div class="sl s1"></div>
+          <div class="sl s2"></div>
+          <div class="sl s3"></div>
+          <div class="sl s4"></div>
           <div class="sl s5"></div>
         </div>
 
         <div class="photo-roman" aria-hidden="true">II</div>
 
-        <!-- Photo frame with code overlay -->
         <div class="photo-frame" id="pFrame">
+
           <img
             src="assets/img/perfil/magdalena.jpg"
-            alt="Magdalena González — Ciberseguridad UTP"
+            alt="Magdalena González — estudiante de Ciberseguridad, UTP"
             class="photo-img"
-            onerror="document.getElementById('pFrame').classList.add('img-err')"
+            id="heroPhoto"
           />
+
+          <!-- Fallback if image fails — shown via JS class -->
           <div class="photo-fb" aria-hidden="true">MG</div>
 
-          <!-- Code overlay — appears on hover -->
+          <!-- Code overlay — ONLY on hover, pointer-events: none -->
           <div class="code-overlay" aria-hidden="true">
-            <div class="co-corners">
+            <div class="co-corners" aria-hidden="true">
               <span class="co-tl"></span>
               <span class="co-tr"></span>
               <span class="co-bl"></span>
               <span class="co-br"></span>
             </div>
-            <div class="co-scan"></div>
-            <div class="co-lines">
-              <span class="co-line">const estudiante = "Magdalena";</span>
-              <span class="co-line">import { portfolio } from './utp';</span>
-              <span class="co-line">portfolio.render();</span>
-              <span class="co-line">ProgramacionII.deploy();</span>
-              <span class="co-line">console.log("Hello, World!");</span>
-              <span class="co-line">function cybersec() { return true; }</span>
-              <span class="co-line co-sym">&lt;/&gt; &nbsp; { } &nbsp; # &nbsp; =&gt;</span>
+            <div class="co-scan" aria-hidden="true"></div>
+
+            <div class="co-section co-top">
+              <div class="co-lines">
+                <span class="co-line l1">const estudiante = "Magdalena";</span>
+                <span class="co-line l2">app.run();</span>
+                <span class="co-line l3">git push origin main;</span>
+              </div>
+              <div class="co-syms">&lt;/&gt;&nbsp;&nbsp;{}&nbsp;&nbsp;()&nbsp;&nbsp;#&nbsp;&nbsp;$</div>
             </div>
-            <div class="co-badge">VIEW CODE</div>
-          </div>
-        </div>
+
+            <div class="co-chips-row">
+              <span class="co-chip">HTML</span>
+              <span class="co-chip">CSS</span>
+              <span class="co-chip">JS</span>
+              <span class="co-chip">Python</span>
+              <span class="co-chip">Flask</span>
+              <span class="co-chip">SQLite</span>
+              <span class="co-chip">Docker</span>
+              <span class="co-chip">Linux</span>
+              <span class="co-chip">GitHub</span>
+            </div>
+
+            <div class="co-section co-bot">
+              <div class="co-lines">
+                <span class="co-line l4">SELECT * FROM proyectos;</span>
+                <span class="co-line l5">console.log("Programación II");</span>
+              </div>
+              <div class="co-badge">CODE MODE</div>
+            </div>
+          </div><!-- /code-overlay -->
+
+        </div><!-- /photo-frame -->
 
         <!-- Floating labels -->
         <div class="flabel fl-utp"   aria-hidden="true">UTP</div>
@@ -140,7 +173,7 @@
         <div class="flabel fl-cyber" aria-hidden="true">Ciberseguridad</div>
         <div class="flabel fl-year"  aria-hidden="true">2026</div>
 
-        <!-- Name card -->
+        <!-- Mini name card -->
         <div class="namecard" aria-hidden="true">
           <div class="nc-av">MG</div>
           <div class="nc-info">
@@ -150,39 +183,45 @@
           <div class="nc-live"></div>
         </div>
 
-      </div>
-    </div>
+      </div><!-- /hero-right -->
+    </div><!-- /hero-poster -->
 
     <!-- Marquee -->
     <div class="mq-bar" aria-hidden="true">
       <div class="mq-track">
-        <span>PROGRAMACIÓN II</span><b>◆</b>
-        <span>UTP PANAMÁ</span><b>◆</b>
-        <span>CIBERSEGURIDAD</span><b>◆</b>
-        <span>GITHUB PAGES</span><b>◆</b>
-        <span>PORTAFOLIO DIGITAL</span><b>◆</b>
-        <span>MAGDALENA GONZÁLEZ</span><b>◆</b>
-        <span>FACULTAD DE SISTEMAS</span><b>◆</b>
-        <span>PROGRAMACIÓN II</span><b>◆</b>
-        <span>UTP PANAMÁ</span><b>◆</b>
-        <span>CIBERSEGURIDAD</span><b>◆</b>
-        <span>GITHUB PAGES</span><b>◆</b>
-        <span>PORTAFOLIO DIGITAL</span><b>◆</b>
-        <span>MAGDALENA GONZÁLEZ</span><b>◆</b>
-        <span>FACULTAD DE SISTEMAS</span><b>◆</b>
+        <span>PROGRAMACIÓN II</span><b class="ms">&#x25C6;</b>
+        <span>UTP PANAMÁ</span><b class="ms">&#x25C6;</b>
+        <span>CIBERSEGURIDAD</span><b class="ms">&#x25C6;</b>
+        <span>GITHUB PAGES</span><b class="ms">&#x25C6;</b>
+        <span>PORTAFOLIO DIGITAL</span><b class="ms">&#x25C6;</b>
+        <span>MAGDALENA GONZÁLEZ</span><b class="ms">&#x25C6;</b>
+        <span>FACULTAD DE SISTEMAS</span><b class="ms">&#x25C6;</b>
+        <!-- duplicate for seamless loop -->
+        <span>PROGRAMACIÓN II</span><b class="ms">&#x25C6;</b>
+        <span>UTP PANAMÁ</span><b class="ms">&#x25C6;</b>
+        <span>CIBERSEGURIDAD</span><b class="ms">&#x25C6;</b>
+        <span>GITHUB PAGES</span><b class="ms">&#x25C6;</b>
+        <span>PORTAFOLIO DIGITAL</span><b class="ms">&#x25C6;</b>
+        <span>MAGDALENA GONZÁLEZ</span><b class="ms">&#x25C6;</b>
+        <span>FACULTAD DE SISTEMAS</span><b class="ms">&#x25C6;</b>
       </div>
     </div>
-  </section>
+
+  </section><!-- /hero -->
 
 
-  <!-- ══ SOBRE MÍ ══════════════════════════════════════════ -->
+  <!-- ══ 2. SOBRE MÍ ════════════════════════════════════ -->
   <section class="about" id="sobre-mi">
     <div class="about-wrap">
+
       <div class="about-l">
         <div class="slbl reveal">/ 001 — SOBRE MÍ</div>
-        <h2 class="stitle reveal">QUIÉN<br/><em>SOY</em><br/>YO.</h2>
+        <h2 class="stitle reveal">
+          QUIÉN<br/><em>SOY</em><br/>YO.
+        </h2>
         <div class="sec-stripe reveal"></div>
       </div>
+
       <div class="about-r">
         <p class="about-text reveal-r">
           Soy Magdalena González, estudiante de la Universidad Tecnológica de Panamá
@@ -192,34 +231,54 @@
           trabajados durante el semestre.
         </p>
         <div class="ic-grid">
-          <div class="ic reveal" style="--di:.00s"><span class="ic-icon">🎓</span><span class="ic-lbl">Universidad</span><span class="ic-val">UTP Panamá</span></div>
-          <div class="ic reveal" style="--di:.08s"><span class="ic-icon">💻</span><span class="ic-lbl">Asignatura</span><span class="ic-val">Programación II</span></div>
-          <div class="ic reveal" style="--di:.16s"><span class="ic-icon">👨‍🏫</span><span class="ic-lbl">Profesor</span><span class="ic-val">Napoleón Ibarra</span></div>
-          <div class="ic reveal" style="--di:.24s"><span class="ic-icon">🛡️</span><span class="ic-lbl">Carrera</span><span class="ic-val">Ciberseguridad</span></div>
+          <div class="ic reveal" style="--di:.00s">
+            <span class="ic-icon">&#127891;</span>
+            <span class="ic-lbl">Universidad</span>
+            <span class="ic-val">UTP Panamá</span>
+          </div>
+          <div class="ic reveal" style="--di:.08s">
+            <span class="ic-icon">&#128187;</span>
+            <span class="ic-lbl">Asignatura</span>
+            <span class="ic-val">Programación II</span>
+          </div>
+          <div class="ic reveal" style="--di:.16s">
+            <span class="ic-icon">&#128104;&#8205;&#127979;</span>
+            <span class="ic-lbl">Profesor</span>
+            <span class="ic-val">Napoleón Ibarra</span>
+          </div>
+          <div class="ic reveal" style="--di:.24s">
+            <span class="ic-icon">&#128737;</span>
+            <span class="ic-lbl">Carrera</span>
+            <span class="ic-val">Ciberseguridad</span>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
 
-  <!-- ══ ACTIVIDADES ═══════════════════════════════════════ -->
+  <!-- ══ 3. ACTIVIDADES ═════════════════════════════════ -->
   <section class="acts" id="actividades">
     <div class="acts-head">
       <div class="slbl reveal">/ 002 — ACTIVIDADES</div>
       <h2 class="stitle reveal">TRABAJOS<br/>DEL <em>SEMESTRE</em></h2>
     </div>
+
     <div class="acts-grid">
 
       <!-- 01 -->
       <article class="rcard reveal" data-tilt style="--di:.00s">
         <div class="rcard-img-wrap">
-          <img src="assets/img/proyectos/investigacion-1/portada.png"
-               alt="Investigación 1 — portada"
-               class="rcard-img"
-               onerror="this.closest('.rcard-img-wrap').classList.add('img-fail')">
-          <div class="rcard-img-fb"><span>Investigación 1</span></div>
-          <div class="rcard-img-hover">
-            <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF ↗</a>
+          <img
+            src="assets/img/proyectos/investigacion-1/portada.png"
+            alt="Investigación 1 — portada"
+            class="rcard-img"
+            data-fb="Investigación 1"
+          />
+          <div class="rcard-img-fb">Investigación 1</div>
+          <div class="rcard-img-overlay">
+            <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF &#8599;</a>
           </div>
         </div>
         <div class="rcard-top">
@@ -233,8 +292,8 @@
             <div class="rmr"><dt>Calificación</dt><dd class="rcgrade">97<small>/100</small></dd></div>
           </dl>
           <div class="rcard-btns">
-            <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF ↗</a>
-            <a href="#evidencias" class="rc-btn-o">Ver evidencias</a>
+            <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF &#8599;</a>
+            <a href="#evidencias" class="rc-btn-o">Ver capturas</a>
           </div>
         </div>
         <div class="rcard-speed" aria-hidden="true"></div>
@@ -243,13 +302,15 @@
       <!-- 02 -->
       <article class="rcard reveal" data-tilt style="--di:.12s">
         <div class="rcard-img-wrap">
-          <img src="assets/img/proyectos/taller-practico-1/portada.png"
-               alt="Taller Práctico 1 — portada"
-               class="rcard-img"
-               onerror="this.closest('.rcard-img-wrap').classList.add('img-fail')">
-          <div class="rcard-img-fb"><span>Taller Práctico 1</span></div>
-          <div class="rcard-img-hover">
-            <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF ↗</a>
+          <img
+            src="assets/img/proyectos/taller-practico-1/portada.png"
+            alt="Taller Práctico 1 — portada"
+            class="rcard-img"
+            data-fb="Taller Práctico 1"
+          />
+          <div class="rcard-img-fb">Taller Práctico 1</div>
+          <div class="rcard-img-overlay">
+            <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF &#8599;</a>
           </div>
         </div>
         <div class="rcard-top">
@@ -263,8 +324,8 @@
             <div class="rmr"><dt>Calificación</dt><dd class="rcgrade perfect">100<small>/100</small></dd></div>
           </dl>
           <div class="rcard-btns">
-            <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF ↗</a>
-            <a href="#evidencias" class="rc-btn-o">Ver evidencias</a>
+            <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF &#8599;</a>
+            <a href="#evidencias" class="rc-btn-o">Ver capturas</a>
           </div>
         </div>
         <div class="rcard-speed" aria-hidden="true"></div>
@@ -273,13 +334,15 @@
       <!-- 03 -->
       <article class="rcard reveal" data-tilt style="--di:.24s">
         <div class="rcard-img-wrap">
-          <img src="assets/img/proyectos/ejercicio-practico-1/portada.png"
-               alt="Ejercicio Práctico 1 — portada"
-               class="rcard-img"
-               onerror="this.closest('.rcard-img-wrap').classList.add('img-fail')">
-          <div class="rcard-img-fb"><span>Ejercicio Práctico 1</span></div>
-          <div class="rcard-img-hover">
-            <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF ↗</a>
+          <img
+            src="assets/img/proyectos/ejercicio-practico-1/portada.png"
+            alt="Ejercicio Práctico 1 — portada"
+            class="rcard-img"
+            data-fb="Ejercicio Práctico 1"
+          />
+          <div class="rcard-img-fb">Ejercicio Práctico 1</div>
+          <div class="rcard-img-overlay">
+            <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF &#8599;</a>
           </div>
         </div>
         <div class="rcard-top">
@@ -290,11 +353,11 @@
           <h3 class="rcard-title">Ejercicio Práctico 1</h3>
           <dl class="rcard-meta">
             <div class="rmr"><dt>Fecha</dt><dd>24 de abril</dd></div>
-            <div class="rmr"><dt>Calificación</dt><dd class="rcgrade pending">—<small>/100</small></dd></div>
+            <div class="rmr"><dt>Calificación</dt><dd class="rcgrade pending">&#8212;<small>/100</small></dd></div>
           </dl>
           <div class="rcard-btns">
-            <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF ↗</a>
-            <a href="#evidencias" class="rc-btn-o">Ver evidencias</a>
+            <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF &#8599;</a>
+            <a href="#evidencias" class="rc-btn-o">Ver capturas</a>
           </div>
         </div>
         <div class="rcard-speed" aria-hidden="true"></div>
@@ -304,27 +367,31 @@
   </section>
 
 
-  <!-- ══ CERTIFICADOS ══════════════════════════════════════ -->
+  <!-- ══ 4. CERTIFICADOS ════════════════════════════════ -->
   <section class="certs" id="certificados">
-    <div class="certs-noise" aria-hidden="true"></div>
+    <div class="certs-stripes" aria-hidden="true"></div>
     <div class="certs-wrap">
+
       <div class="slbl reveal lite">/ 003 — CERTIFICADOS</div>
       <h2 class="stitle lite reveal">LOGROS &amp;<br/><em class="lime">CURSOS</em></h2>
+
       <div class="certs-grid">
 
         <!-- Java -->
         <div class="cert-card reveal" data-tilt style="--di:.00s"
-             data-lb="assets/img/certificados/java.png"
-             data-lb-alt="Certificado Java">
+             data-lb-src="assets/img/certificados/java.png"
+             data-lb-alt="Certificado Java"
+             role="button" tabindex="0" aria-label="Abrir certificado Java en grande">
           <div class="cert-img-wrap">
-            <img src="assets/img/certificados/java.png"
-                 alt="Certificado Java"
-                 class="cert-img"
-                 onerror="this.closest('.cert-img-wrap').classList.add('img-fail')">
-            <div class="cert-img-fb">JAVA</div>
+            <img
+              src="assets/img/certificados/java.png"
+              alt="Certificado Java"
+              class="cert-img"
+              data-fb="Certificado Java"
+            />
+            <div class="cert-img-fb">Certificado Java</div>
             <div class="cert-hover-layer">
-              <span class="cert-hover-icon">🔍</span>
-              <span class="cert-hover-txt">Ver certificado</span>
+              <span class="cert-hover-txt">VER CERTIFICADO &#8599;</span>
             </div>
           </div>
           <div class="cert-info">
@@ -336,17 +403,19 @@
 
         <!-- MySQL -->
         <div class="cert-card reveal" data-tilt style="--di:.12s"
-             data-lb="assets/img/certificados/mysql.png"
-             data-lb-alt="Certificado MySQL">
+             data-lb-src="assets/img/certificados/mysql.png"
+             data-lb-alt="Certificado MySQL"
+             role="button" tabindex="0" aria-label="Abrir certificado MySQL en grande">
           <div class="cert-img-wrap">
-            <img src="assets/img/certificados/mysql.png"
-                 alt="Certificado MySQL"
-                 class="cert-img"
-                 onerror="this.closest('.cert-img-wrap').classList.add('img-fail')">
-            <div class="cert-img-fb">MySQL</div>
+            <img
+              src="assets/img/certificados/mysql.png"
+              alt="Certificado MySQL"
+              class="cert-img"
+              data-fb="Certificado MySQL"
+            />
+            <div class="cert-img-fb">Certificado MySQL</div>
             <div class="cert-hover-layer">
-              <span class="cert-hover-icon">🔍</span>
-              <span class="cert-hover-txt">Ver certificado</span>
+              <span class="cert-hover-txt">VER CERTIFICADO &#8599;</span>
             </div>
           </div>
           <div class="cert-info">
@@ -358,17 +427,19 @@
 
         <!-- Cisco -->
         <div class="cert-card reveal" data-tilt style="--di:.24s"
-             data-lb="assets/img/certificados/cisco.png"
-             data-lb-alt="Certificado Cisco Ciberseguridad">
+             data-lb-src="assets/img/certificados/cisco.png"
+             data-lb-alt="Certificado Cisco Ciberseguridad"
+             role="button" tabindex="0" aria-label="Abrir certificado Cisco en grande">
           <div class="cert-img-wrap">
-            <img src="assets/img/certificados/cisco.png"
-                 alt="Cisco Introducción a Ciberseguridad"
-                 class="cert-img"
-                 onerror="this.closest('.cert-img-wrap').classList.add('img-fail')">
-            <div class="cert-img-fb">CISCO</div>
+            <img
+              src="assets/img/certificados/cisco.png"
+              alt="Cisco — Introducción a Ciberseguridad"
+              class="cert-img"
+              data-fb="Certificado Cisco"
+            />
+            <div class="cert-img-fb">Certificado Cisco</div>
             <div class="cert-hover-layer">
-              <span class="cert-hover-icon">🔍</span>
-              <span class="cert-hover-txt">Ver certificado</span>
+              <span class="cert-hover-txt">VER CERTIFICADO &#8599;</span>
             </div>
           </div>
           <div class="cert-info">
@@ -383,85 +454,116 @@
   </section>
 
 
-  <!-- ══ EVIDENCIAS / GALERÍA ══════════════════════════════ -->
+  <!-- ══ 5. EVIDENCIAS ══════════════════════════════════ -->
   <section class="evid" id="evidencias">
     <div class="evid-wrap">
+
       <div class="slbl reveal">/ 004 — EVIDENCIAS</div>
       <h2 class="stitle reveal">GALERÍA DE<br/><em>CAPTURAS</em></h2>
 
       <!-- Investigación 1 -->
-      <div class="evid-project reveal">
-        <div class="evid-project-head">
-          <span class="ep-num">01</span>
-          <div>
+      <div class="evid-project reveal" style="--di:.00s">
+        <div class="ep-head">
+          <span class="ep-num" aria-hidden="true">01</span>
+          <div class="ep-meta-wrap">
             <h3 class="ep-title">Investigación 1</h3>
-            <span class="ep-meta">27 de marzo · 97/100 · Devuelto</span>
+            <span class="ep-meta">27 de marzo &middot; 97/100 &middot; Devuelto</span>
           </div>
-          <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF ↗</a>
+          <a href="docs/investigacion-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF &#8599;</a>
         </div>
         <div class="evid-grid">
-          <div class="eg-item" data-lb="assets/img/proyectos/investigacion-1/portada.png" data-lb-alt="Investigación 1 — Portada">
-            <img src="assets/img/proyectos/investigacion-1/portada.png" alt="Portada Investigación 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
-            <div class="eg-fb">Investigación 1</div>
-            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+          <div class="eg-item"
+               data-lb-src="assets/img/proyectos/investigacion-1/portada.png"
+               data-lb-alt="Investigación 1 — Portada"
+               role="button" tabindex="0" aria-label="Ampliar: Investigación 1 portada">
+            <img src="assets/img/proyectos/investigacion-1/portada.png"
+                 alt="Portada Investigación 1"
+                 data-fb="Evidencia no disponible" />
+            <div class="eg-img-fb">Evidencia no disponible</div>
+            <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Portada</span>
           </div>
         </div>
       </div>
 
       <!-- Taller Práctico 1 -->
-      <div class="evid-project reveal" style="--di:.1s">
-        <div class="evid-project-head">
-          <span class="ep-num">02</span>
-          <div>
+      <div class="evid-project reveal" style="--di:.10s">
+        <div class="ep-head">
+          <span class="ep-num" aria-hidden="true">02</span>
+          <div class="ep-meta-wrap">
             <h3 class="ep-title">Taller Práctico 1</h3>
-            <span class="ep-meta">10 de abril · 100/100 · Devuelto</span>
+            <span class="ep-meta">10 de abril &middot; 100/100 &middot; Devuelto</span>
           </div>
-          <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF ↗</a>
+          <a href="docs/taller-practico-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF &#8599;</a>
         </div>
         <div class="evid-grid">
-          <div class="eg-item" data-lb="assets/img/proyectos/taller-practico-1/portada.png" data-lb-alt="Taller Práctico 1 — Portada">
-            <img src="assets/img/proyectos/taller-practico-1/portada.png" alt="Portada Taller Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
-            <div class="eg-fb">Taller Práctico 1</div>
-            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+          <div class="eg-item"
+               data-lb-src="assets/img/proyectos/taller-practico-1/portada.png"
+               data-lb-alt="Taller Práctico 1 — Portada"
+               role="button" tabindex="0" aria-label="Ampliar: Taller Práctico 1 portada">
+            <img src="assets/img/proyectos/taller-practico-1/portada.png"
+                 alt="Portada Taller Práctico 1"
+                 data-fb="Evidencia no disponible" />
+            <div class="eg-img-fb">Evidencia no disponible</div>
+            <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Portada</span>
           </div>
-          <div class="eg-item" data-lb="assets/img/proyectos/taller-practico-1/captura-1.png" data-lb-alt="Taller Práctico 1 — Captura 1">
-            <img src="assets/img/proyectos/taller-practico-1/captura-1.png" alt="Captura 1 Taller Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
-            <div class="eg-fb">Taller — Captura 1</div>
-            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+          <div class="eg-item"
+               data-lb-src="assets/img/proyectos/taller-practico-1/captura-1.png"
+               data-lb-alt="Taller Práctico 1 — Captura 1"
+               role="button" tabindex="0" aria-label="Ampliar: Taller Práctico 1 captura 1">
+            <img src="assets/img/proyectos/taller-practico-1/captura-1.png"
+                 alt="Captura 1 Taller Práctico 1"
+                 data-fb="Evidencia no disponible" />
+            <div class="eg-img-fb">Evidencia no disponible</div>
+            <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Captura 1</span>
           </div>
         </div>
       </div>
 
       <!-- Ejercicio Práctico 1 -->
-      <div class="evid-project reveal" style="--di:.2s">
-        <div class="evid-project-head">
-          <span class="ep-num">03</span>
-          <div>
+      <div class="evid-project reveal" style="--di:.20s">
+        <div class="ep-head">
+          <span class="ep-num" aria-hidden="true">03</span>
+          <div class="ep-meta-wrap">
             <h3 class="ep-title">Ejercicio Práctico 1</h3>
-            <span class="ep-meta">24 de abril · Entregado</span>
+            <span class="ep-meta">24 de abril &middot; Entregado</span>
           </div>
-          <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF ↗</a>
+          <a href="docs/ejercicio-practico-1.pdf" target="_blank" rel="noopener" class="ep-pdf">PDF &#8599;</a>
         </div>
         <div class="evid-grid">
-          <div class="eg-item" data-lb="assets/img/proyectos/ejercicio-practico-1/portada.png" data-lb-alt="Ejercicio Práctico 1 — Portada">
-            <img src="assets/img/proyectos/ejercicio-practico-1/portada.png" alt="Portada Ejercicio Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
-            <div class="eg-fb">Ejercicio Práctico 1</div>
-            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+          <div class="eg-item"
+               data-lb-src="assets/img/proyectos/ejercicio-practico-1/portada.png"
+               data-lb-alt="Ejercicio Práctico 1 — Portada"
+               role="button" tabindex="0" aria-label="Ampliar: Ejercicio Práctico 1 portada">
+            <img src="assets/img/proyectos/ejercicio-practico-1/portada.png"
+                 alt="Portada Ejercicio Práctico 1"
+                 data-fb="Evidencia no disponible" />
+            <div class="eg-img-fb">Evidencia no disponible</div>
+            <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Portada</span>
           </div>
-          <div class="eg-item" data-lb="assets/img/proyectos/ejercicio-practico-1/captura-1.png" data-lb-alt="Ejercicio Práctico 1 — Captura 1">
-            <img src="assets/img/proyectos/ejercicio-practico-1/captura-1.png" alt="Captura 1 Ejercicio Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
-            <div class="eg-fb">Ejercicio — Captura 1</div>
-            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+          <div class="eg-item"
+               data-lb-src="assets/img/proyectos/ejercicio-practico-1/captura-1.png"
+               data-lb-alt="Ejercicio Práctico 1 — Captura 1"
+               role="button" tabindex="0" aria-label="Ampliar: Ejercicio Práctico 1 captura 1">
+            <img src="assets/img/proyectos/ejercicio-practico-1/captura-1.png"
+                 alt="Captura 1 Ejercicio Práctico 1"
+                 data-fb="Evidencia no disponible" />
+            <div class="eg-img-fb">Evidencia no disponible</div>
+            <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Captura 1</span>
           </div>
-          <div class="eg-item" data-lb="assets/img/proyectos/ejercicio-practico-1/captura-2.png" data-lb-alt="Ejercicio Práctico 1 — Captura 2">
-            <img src="assets/img/proyectos/ejercicio-practico-1/captura-2.png" alt="Captura 2 Ejercicio Práctico 1" onerror="this.closest('.eg-item').classList.add('img-fail')">
-            <div class="eg-fb">Ejercicio — Captura 2</div>
-            <div class="eg-overlay"><span>🔍 Ampliar</span></div>
+          <div class="eg-item"
+               data-lb-src="assets/img/proyectos/ejercicio-practico-1/captura-2.png"
+               data-lb-alt="Ejercicio Práctico 1 — Captura 2"
+               role="button" tabindex="0" aria-label="Ampliar: Ejercicio Práctico 1 captura 2">
+            <img src="assets/img/proyectos/ejercicio-practico-1/captura-2.png"
+                 alt="Captura 2 Ejercicio Práctico 1"
+                 data-fb="Evidencia no disponible" />
+            <div class="eg-img-fb">Evidencia no disponible</div>
+            <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Captura 2</span>
           </div>
         </div>
@@ -471,12 +573,14 @@
   </section>
 
 
-  <!-- ══ HABILIDADES ═══════════════════════════════════════ -->
+  <!-- ══ 6. HABILIDADES ═════════════════════════════════ -->
   <section class="skills" id="habilidades">
-    <div class="skills-noise" aria-hidden="true"></div>
+    <div class="skills-stripes" aria-hidden="true"></div>
     <div class="skills-wrap">
+
       <div class="slbl reveal lite">/ 005 — HABILIDADES</div>
       <h2 class="stitle lite reveal">STACK &amp;<br/><em class="lime">CAPACIDADES</em></h2>
+
       <div class="schips">
         <span class="schip reveal" style="--di:.00s">HTML5</span>
         <span class="schip reveal" style="--di:.07s">CSS3</span>
@@ -485,6 +589,7 @@
         <span class="schip reveal" style="--di:.28s">Organización de evidencias</span>
         <span class="schip reveal" style="--di:.35s">Desarrollo web académico</span>
       </div>
+
       <div class="sbars">
         <div class="sbar reveal" style="--di:.00s" data-pct="90">
           <div class="sbar-hd"><span>HTML5</span><span class="sbar-n">90%</span></div>
@@ -503,37 +608,46 @@
           <div class="sbar-track"><div class="sbar-fill"></div></div>
         </div>
       </div>
+
     </div>
   </section>
 
 
-  <!-- ══ CONTACTO ══════════════════════════════════════════ -->
+  <!-- ══ 7. CONTACTO — dark bg, lime accents ════════════ -->
   <section class="contact" id="contacto">
-    <div class="contact-slash" aria-hidden="true"></div>
+    <div class="contact-lime-stripe" aria-hidden="true"></div>
     <div class="contact-wrap reveal">
       <div class="slbl inv">/ 006 — CONTACTO</div>
       <h2 class="contact-big">CONE<br/>CTEMOS<span class="cb-dot">.</span></h2>
       <p class="contact-sub">Magdalena González — UTP Panamá — Ciberseguridad</p>
       <div class="c-links">
-        <a href="mailto:magdalena.gonzalez2@utp.ac.pa" class="clink cl-email">
-          <span class="cl-ico">✉</span><span>magdalena.gonzalez2@utp.ac.pa</span>
+        <a href="mailto:magdalena.gonzalez2@utp.ac.pa"
+           class="clink cl-email">
+          <span class="cl-ico">&#x2709;</span>
+          <span>magdalena.gonzalez2@utp.ac.pa</span>
         </a>
-        <a href="https://www.linkedin.com/in/magdalenagonzalezpanama" target="_blank" rel="noopener" class="clink cl-li">
-          <span class="cl-ico">in</span><span>LinkedIn</span>
+        <a href="https://www.linkedin.com/in/magdalenagonzalezpanama"
+           target="_blank" rel="noopener"
+           class="clink cl-li">
+          <span class="cl-ico">in</span>
+          <span>LinkedIn</span>
         </a>
-        <a href="https://www.youtube.com/@MagdalenaGonzalez-te9wk" target="_blank" rel="noopener" class="clink cl-yt">
-          <span class="cl-ico">▶</span><span>YouTube</span>
+        <a href="https://www.youtube.com/@MagdalenaGonzalez-te9wk"
+           target="_blank" rel="noopener"
+           class="clink cl-yt">
+          <span class="cl-ico">&#x25B6;</span>
+          <span>YouTube</span>
         </a>
       </div>
     </div>
   </section>
 
 
-  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <!-- ══ FOOTER ═════════════════════════════════════════ -->
   <footer class="foot">
     <div class="foot-in">
       <span class="foot-logo">MG<span>.</span>PORTFOLIO</span>
-      <span class="foot-copy">© 2026 Magdalena González — Portafolio de Programación II</span>
+      <span class="foot-copy">&copy; 2026 Magdalena González &mdash; Portafolio de Programación II</span>
     </div>
   </footer>
 
