@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <!-- ══ LIGHTBOX — hidden by default ═══════════════════ -->
+  <!-- ══ LIGHTBOX ═══════════════════════════════════════════════ -->
   <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Imagen ampliada" aria-hidden="true">
     <div class="lb-bg" id="lbBg"></div>
     <div class="lb-box">
@@ -21,11 +21,11 @@
     </div>
   </div>
 
-  <!-- ══ CURSOR — pointer-events: none via CSS ══════════ -->
+  <!-- ══ CURSOR ═════════════════════════════════════════════════ -->
   <div class="cur-dot"  id="curDot"  aria-hidden="true"></div>
   <div class="cur-ring" id="curRing" aria-hidden="true"></div>
 
-  <!-- ══ HEADER ═════════════════════════════════════════ -->
+  <!-- ══ HEADER ════════════════════════════════════════════════ -->
   <header class="header" id="header">
     <div class="h-in">
       <a href="#inicio" class="logo">MG<span>.</span>PORTFOLIO</a>
@@ -56,10 +56,10 @@
     <a href="#contacto"     class="mnl">Contacto</a>
   </div>
 
-  <!-- ══ 1. HERO ════════════════════════════════════════ -->
+  <!-- ══ 1. HERO ════════════════════════════════════════════════ -->
   <section class="hero" id="inicio">
 
-    <div class="hero-grid"    aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-slash a" aria-hidden="true"></div>
     <div class="hero-slash b" aria-hidden="true"></div>
 
@@ -100,7 +100,7 @@
 
       </div><!-- /hero-left -->
 
-      <!-- RIGHT: photo with code overlay -->
+      <!-- RIGHT: Python logo — replaces photo -->
       <div class="hero-right" id="heroRight">
 
         <div class="speed-lines" aria-hidden="true">
@@ -113,19 +113,16 @@
 
         <div class="photo-roman" aria-hidden="true">II</div>
 
+        <!-- PYTHON LOGO FRAME (replaces photo-frame + photo-img) -->
         <div class="photo-frame" id="pFrame">
 
           <img
-            src="assets/img/perfil/magdalena.jpg"
-            alt="Magdalena González — estudiante de Ciberseguridad, UTP"
-            class="photo-img"
-            id="heroPhoto"
+            src="assets/img/perfil/python-logo.png"
+            alt="Python — lenguaje de programación"
+            class="python-logo"
           />
 
-          <!-- Fallback if image fails — shown via JS class -->
-          <div class="photo-fb" aria-hidden="true">MG</div>
-
-          <!-- Code overlay — ONLY on hover, pointer-events: none -->
+          <!-- Code overlay on hover -->
           <div class="code-overlay" aria-hidden="true">
             <div class="co-corners" aria-hidden="true">
               <span class="co-tl"></span>
@@ -138,8 +135,8 @@
             <div class="co-section co-top">
               <div class="co-lines">
                 <span class="co-line l1">const estudiante = "Magdalena";</span>
-                <span class="co-line l2">app.run();</span>
-                <span class="co-line l3">git push origin main;</span>
+                <span class="co-line l2">app.run()</span>
+                <span class="co-line l3">git push origin main</span>
               </div>
               <div class="co-syms">&lt;/&gt;&nbsp;&nbsp;{}&nbsp;&nbsp;()&nbsp;&nbsp;#&nbsp;&nbsp;$</div>
             </div>
@@ -196,7 +193,6 @@
         <span>PORTAFOLIO DIGITAL</span><b class="ms">&#x25C6;</b>
         <span>MAGDALENA GONZÁLEZ</span><b class="ms">&#x25C6;</b>
         <span>FACULTAD DE SISTEMAS</span><b class="ms">&#x25C6;</b>
-        <!-- duplicate for seamless loop -->
         <span>PROGRAMACIÓN II</span><b class="ms">&#x25C6;</b>
         <span>UTP PANAMÁ</span><b class="ms">&#x25C6;</b>
         <span>CIBERSEGURIDAD</span><b class="ms">&#x25C6;</b>
@@ -210,7 +206,7 @@
   </section><!-- /hero -->
 
 
-  <!-- ══ 2. SOBRE MÍ ════════════════════════════════════ -->
+  <!-- ══ 2. SOBRE MÍ ═══════════════════════════════════════════ -->
   <section class="about" id="sobre-mi">
     <div class="about-wrap">
 
@@ -223,7 +219,7 @@
       </div>
 
       <div class="about-r">
-        <p class="about-text reveal-r">
+        <p class="about-text reveal">
           Soy Magdalena González, estudiante de la Universidad Tecnológica de Panamá
           en la carrera de Ciberseguridad. Este portafolio reúne las actividades
           realizadas en Programación II, mostrando mi avance en análisis, desarrollo,
@@ -258,7 +254,7 @@
   </section>
 
 
-  <!-- ══ 3. ACTIVIDADES ═════════════════════════════════ -->
+  <!-- ══ 3. ACTIVIDADES ════════════════════════════════════════ -->
   <section class="acts" id="actividades">
     <div class="acts-head">
       <div class="slbl reveal">/ 002 — ACTIVIDADES</div>
@@ -363,11 +359,107 @@
         <div class="rcard-speed" aria-hidden="true"></div>
       </article>
 
+      <!-- 04 — Examen Parcial 1 -->
+      <article class="rcard reveal" data-tilt style="--di:.36s">
+        <div class="rcard-img-wrap">
+          <img
+            src="assets/img/proyectos/examen-parcial-1/portada.png"
+            alt="Examen Parcial 1 — portada"
+            class="rcard-img"
+            data-fb="Examen Parcial 1"
+          />
+          <div class="rcard-img-fb">Examen Parcial 1</div>
+          <div class="rcard-img-overlay">
+            <a href="docs/examen-parcial-1.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF &#8599;</a>
+          </div>
+        </div>
+        <div class="rcard-top">
+          <div class="rcard-num" aria-hidden="true">04</div>
+          <span class="rcbadge rc-pend">Pendiente</span>
+        </div>
+        <div class="rcard-body">
+          <h3 class="rcard-title">Examen Parcial 1</h3>
+          <dl class="rcard-meta">
+            <div class="rmr"><dt>Fecha</dt><dd>Por confirmar</dd></div>
+            <div class="rmr"><dt>Calificación</dt><dd class="rcgrade pending">&#8212;<small>/100</small></dd></div>
+          </dl>
+          <div class="rcard-btns">
+            <a href="docs/examen-parcial-1.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF &#8599;</a>
+            <a href="#evidencias" class="rc-btn-o">Ver capturas</a>
+          </div>
+        </div>
+        <div class="rcard-speed" aria-hidden="true"></div>
+      </article>
+
+      <!-- 05 — Ejercicio Práctico 2 -->
+      <article class="rcard reveal" data-tilt style="--di:.48s">
+        <div class="rcard-img-wrap">
+          <img
+            src="assets/img/proyectos/ejercicio-practico-2/portada.png"
+            alt="Ejercicio Práctico 2 — portada"
+            class="rcard-img"
+            data-fb="Ejercicio Práctico 2"
+          />
+          <div class="rcard-img-fb">Ejercicio Práctico 2</div>
+          <div class="rcard-img-overlay">
+            <a href="docs/ejercicio-practico-2.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF &#8599;</a>
+          </div>
+        </div>
+        <div class="rcard-top">
+          <div class="rcard-num" aria-hidden="true">05</div>
+          <span class="rcbadge rc-pend">Pendiente</span>
+        </div>
+        <div class="rcard-body">
+          <h3 class="rcard-title">Ejercicio Práctico 2</h3>
+          <dl class="rcard-meta">
+            <div class="rmr"><dt>Fecha</dt><dd>Por confirmar</dd></div>
+            <div class="rmr"><dt>Calificación</dt><dd class="rcgrade pending">&#8212;<small>/100</small></dd></div>
+          </dl>
+          <div class="rcard-btns">
+            <a href="docs/ejercicio-practico-2.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF &#8599;</a>
+            <a href="#evidencias" class="rc-btn-o">Ver capturas</a>
+          </div>
+        </div>
+        <div class="rcard-speed" aria-hidden="true"></div>
+      </article>
+
+      <!-- 06 — Examen Parcial 2 -->
+      <article class="rcard reveal" data-tilt style="--di:.60s">
+        <div class="rcard-img-wrap">
+          <img
+            src="assets/img/proyectos/examen-parcial-2/portada.png"
+            alt="Examen Parcial 2 — portada"
+            class="rcard-img"
+            data-fb="Examen Parcial 2"
+          />
+          <div class="rcard-img-fb">Examen Parcial 2</div>
+          <div class="rcard-img-overlay">
+            <a href="docs/examen-parcial-2.pdf" target="_blank" rel="noopener" class="rcard-pdf-pill">Ver PDF &#8599;</a>
+          </div>
+        </div>
+        <div class="rcard-top">
+          <div class="rcard-num" aria-hidden="true">06</div>
+          <span class="rcbadge rc-pend">Pendiente</span>
+        </div>
+        <div class="rcard-body">
+          <h3 class="rcard-title">Examen Parcial 2</h3>
+          <dl class="rcard-meta">
+            <div class="rmr"><dt>Fecha</dt><dd>Por confirmar</dd></div>
+            <div class="rmr"><dt>Calificación</dt><dd class="rcgrade pending">&#8212;<small>/100</small></dd></div>
+          </dl>
+          <div class="rcard-btns">
+            <a href="docs/examen-parcial-2.pdf" target="_blank" rel="noopener" class="rc-btn">Abrir PDF &#8599;</a>
+            <a href="#evidencias" class="rc-btn-o">Ver capturas</a>
+          </div>
+        </div>
+        <div class="rcard-speed" aria-hidden="true"></div>
+      </article>
+
     </div>
   </section>
 
 
-  <!-- ══ 4. CERTIFICADOS ════════════════════════════════ -->
+  <!-- ══ 4. CERTIFICADOS ═══════════════════════════════════════ -->
   <section class="certs" id="certificados">
     <div class="certs-stripes" aria-hidden="true"></div>
     <div class="certs-wrap">
@@ -383,12 +475,7 @@
              data-lb-alt="Certificado Java"
              role="button" tabindex="0" aria-label="Abrir certificado Java en grande">
           <div class="cert-img-wrap">
-            <img
-              src="assets/img/certificados/java.png"
-              alt="Certificado Java"
-              class="cert-img"
-              data-fb="Certificado Java"
-            />
+            <img src="assets/img/certificados/java.png" alt="Certificado Java" class="cert-img" data-fb="Certificado Java" />
             <div class="cert-img-fb">Certificado Java</div>
             <div class="cert-hover-layer">
               <span class="cert-hover-txt">VER CERTIFICADO &#8599;</span>
@@ -407,12 +494,7 @@
              data-lb-alt="Certificado MySQL"
              role="button" tabindex="0" aria-label="Abrir certificado MySQL en grande">
           <div class="cert-img-wrap">
-            <img
-              src="assets/img/certificados/mysql.png"
-              alt="Certificado MySQL"
-              class="cert-img"
-              data-fb="Certificado MySQL"
-            />
+            <img src="assets/img/certificados/mysql.png" alt="Certificado MySQL" class="cert-img" data-fb="Certificado MySQL" />
             <div class="cert-img-fb">Certificado MySQL</div>
             <div class="cert-hover-layer">
               <span class="cert-hover-txt">VER CERTIFICADO &#8599;</span>
@@ -431,12 +513,7 @@
              data-lb-alt="Certificado Cisco Ciberseguridad"
              role="button" tabindex="0" aria-label="Abrir certificado Cisco en grande">
           <div class="cert-img-wrap">
-            <img
-              src="assets/img/certificados/cisco.png"
-              alt="Cisco — Introducción a Ciberseguridad"
-              class="cert-img"
-              data-fb="Certificado Cisco"
-            />
+            <img src="assets/img/certificados/cisco.png" alt="Cisco — Introducción a Ciberseguridad" class="cert-img" data-fb="Certificado Cisco" />
             <div class="cert-img-fb">Certificado Cisco</div>
             <div class="cert-hover-layer">
               <span class="cert-hover-txt">VER CERTIFICADO &#8599;</span>
@@ -454,7 +531,7 @@
   </section>
 
 
-  <!-- ══ 5. EVIDENCIAS ══════════════════════════════════ -->
+  <!-- ══ 5. EVIDENCIAS ═════════════════════════════════════════ -->
   <section class="evid" id="evidencias">
     <div class="evid-wrap">
 
@@ -476,9 +553,7 @@
                data-lb-src="assets/img/proyectos/investigacion-1/portada.png"
                data-lb-alt="Investigación 1 — Portada"
                role="button" tabindex="0" aria-label="Ampliar: Investigación 1 portada">
-            <img src="assets/img/proyectos/investigacion-1/portada.png"
-                 alt="Portada Investigación 1"
-                 data-fb="Evidencia no disponible" />
+            <img src="assets/img/proyectos/investigacion-1/portada.png" alt="Portada Investigación 1" data-fb="Evidencia no disponible" />
             <div class="eg-img-fb">Evidencia no disponible</div>
             <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Portada</span>
@@ -501,9 +576,7 @@
                data-lb-src="assets/img/proyectos/taller-practico-1/portada.png"
                data-lb-alt="Taller Práctico 1 — Portada"
                role="button" tabindex="0" aria-label="Ampliar: Taller Práctico 1 portada">
-            <img src="assets/img/proyectos/taller-practico-1/portada.png"
-                 alt="Portada Taller Práctico 1"
-                 data-fb="Evidencia no disponible" />
+            <img src="assets/img/proyectos/taller-practico-1/portada.png" alt="Portada Taller Práctico 1" data-fb="Evidencia no disponible" />
             <div class="eg-img-fb">Evidencia no disponible</div>
             <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Portada</span>
@@ -512,9 +585,7 @@
                data-lb-src="assets/img/proyectos/taller-practico-1/captura-1.png"
                data-lb-alt="Taller Práctico 1 — Captura 1"
                role="button" tabindex="0" aria-label="Ampliar: Taller Práctico 1 captura 1">
-            <img src="assets/img/proyectos/taller-practico-1/captura-1.png"
-                 alt="Captura 1 Taller Práctico 1"
-                 data-fb="Evidencia no disponible" />
+            <img src="assets/img/proyectos/taller-practico-1/captura-1.png" alt="Captura 1 Taller Práctico 1" data-fb="Evidencia no disponible" />
             <div class="eg-img-fb">Evidencia no disponible</div>
             <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Captura 1</span>
@@ -537,9 +608,7 @@
                data-lb-src="assets/img/proyectos/ejercicio-practico-1/portada.png"
                data-lb-alt="Ejercicio Práctico 1 — Portada"
                role="button" tabindex="0" aria-label="Ampliar: Ejercicio Práctico 1 portada">
-            <img src="assets/img/proyectos/ejercicio-practico-1/portada.png"
-                 alt="Portada Ejercicio Práctico 1"
-                 data-fb="Evidencia no disponible" />
+            <img src="assets/img/proyectos/ejercicio-practico-1/portada.png" alt="Portada Ejercicio Práctico 1" data-fb="Evidencia no disponible" />
             <div class="eg-img-fb">Evidencia no disponible</div>
             <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Portada</span>
@@ -548,9 +617,7 @@
                data-lb-src="assets/img/proyectos/ejercicio-practico-1/captura-1.png"
                data-lb-alt="Ejercicio Práctico 1 — Captura 1"
                role="button" tabindex="0" aria-label="Ampliar: Ejercicio Práctico 1 captura 1">
-            <img src="assets/img/proyectos/ejercicio-practico-1/captura-1.png"
-                 alt="Captura 1 Ejercicio Práctico 1"
-                 data-fb="Evidencia no disponible" />
+            <img src="assets/img/proyectos/ejercicio-practico-1/captura-1.png" alt="Captura 1 Ejercicio Práctico 1" data-fb="Evidencia no disponible" />
             <div class="eg-img-fb">Evidencia no disponible</div>
             <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Captura 1</span>
@@ -559,9 +626,7 @@
                data-lb-src="assets/img/proyectos/ejercicio-practico-1/captura-2.png"
                data-lb-alt="Ejercicio Práctico 1 — Captura 2"
                role="button" tabindex="0" aria-label="Ampliar: Ejercicio Práctico 1 captura 2">
-            <img src="assets/img/proyectos/ejercicio-practico-1/captura-2.png"
-                 alt="Captura 2 Ejercicio Práctico 1"
-                 data-fb="Evidencia no disponible" />
+            <img src="assets/img/proyectos/ejercicio-practico-1/captura-2.png" alt="Captura 2 Ejercicio Práctico 1" data-fb="Evidencia no disponible" />
             <div class="eg-img-fb">Evidencia no disponible</div>
             <div class="eg-overlay"><span>AMPLIAR &#8599;</span></div>
             <span class="eg-label">Captura 2</span>
@@ -573,7 +638,7 @@
   </section>
 
 
-  <!-- ══ 6. HABILIDADES ═════════════════════════════════ -->
+  <!-- ══ 6. HABILIDADES ════════════════════════════════════════ -->
   <section class="skills" id="habilidades">
     <div class="skills-stripes" aria-hidden="true"></div>
     <div class="skills-wrap">
@@ -592,19 +657,19 @@
 
       <div class="sbars">
         <div class="sbar reveal" style="--di:.00s" data-pct="90">
-          <div class="sbar-hd"><span>HTML5</span><span class="sbar-n">90%</span></div>
+          <div class="sbar-hd"><span>HTML5</span><span class="sbar-n">0%</span></div>
           <div class="sbar-track"><div class="sbar-fill"></div></div>
         </div>
         <div class="sbar reveal" style="--di:.08s" data-pct="85">
-          <div class="sbar-hd"><span>CSS3</span><span class="sbar-n">85%</span></div>
+          <div class="sbar-hd"><span>CSS3</span><span class="sbar-n">0%</span></div>
           <div class="sbar-track"><div class="sbar-fill"></div></div>
         </div>
         <div class="sbar reveal" style="--di:.16s" data-pct="75">
-          <div class="sbar-hd"><span>JavaScript</span><span class="sbar-n">75%</span></div>
+          <div class="sbar-hd"><span>JavaScript</span><span class="sbar-n">0%</span></div>
           <div class="sbar-track"><div class="sbar-fill"></div></div>
         </div>
         <div class="sbar reveal" style="--di:.24s" data-pct="80">
-          <div class="sbar-hd"><span>GitHub Pages</span><span class="sbar-n">80%</span></div>
+          <div class="sbar-hd"><span>GitHub Pages</span><span class="sbar-n">0%</span></div>
           <div class="sbar-track"><div class="sbar-fill"></div></div>
         </div>
       </div>
@@ -613,7 +678,7 @@
   </section>
 
 
-  <!-- ══ 7. CONTACTO — dark bg, lime accents ════════════ -->
+  <!-- ══ 7. CONTACTO ═══════════════════════════════════════════ -->
   <section class="contact" id="contacto">
     <div class="contact-lime-stripe" aria-hidden="true"></div>
     <div class="contact-wrap reveal">
@@ -621,20 +686,17 @@
       <h2 class="contact-big">CONE<br/>CTEMOS<span class="cb-dot">.</span></h2>
       <p class="contact-sub">Magdalena González — UTP Panamá — Ciberseguridad</p>
       <div class="c-links">
-        <a href="mailto:magdalena.gonzalez2@utp.ac.pa"
-           class="clink cl-email">
+        <a href="mailto:magdalena.gonzalez2@utp.ac.pa" class="clink cl-email">
           <span class="cl-ico">&#x2709;</span>
           <span>magdalena.gonzalez2@utp.ac.pa</span>
         </a>
         <a href="https://www.linkedin.com/in/magdalenagonzalezpanama"
-           target="_blank" rel="noopener"
-           class="clink cl-li">
+           target="_blank" rel="noopener" class="clink cl-li">
           <span class="cl-ico">in</span>
           <span>LinkedIn</span>
         </a>
         <a href="https://www.youtube.com/@MagdalenaGonzalez-te9wk"
-           target="_blank" rel="noopener"
-           class="clink cl-yt">
+           target="_blank" rel="noopener" class="clink cl-yt">
           <span class="cl-ico">&#x25B6;</span>
           <span>YouTube</span>
         </a>
@@ -643,7 +705,7 @@
   </section>
 
 
-  <!-- ══ FOOTER ═════════════════════════════════════════ -->
+  <!-- ══ FOOTER ════════════════════════════════════════════════ -->
   <footer class="foot">
     <div class="foot-in">
       <span class="foot-logo">MG<span>.</span>PORTFOLIO</span>
